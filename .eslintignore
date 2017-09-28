@@ -1,3 +1,5 @@
 node_moduels/*
-lib/*
+**/lib/*
+flow-typed/*
 flow-typed/npm/*
+__fixtures__/**

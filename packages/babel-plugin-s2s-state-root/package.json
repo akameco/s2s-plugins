@@ -1,7 +1,7 @@
 {
-  "name": "babel-plugin-s2s-action-types",
-  "version": "0.2.0",
-  "description": "generate action types",
+  "name": "babel-plugin-s2s-state-root",
+  "version": "0.1.1",
+  "description": "generate state types",
   "license": "MIT",
   "repository": "akameco/s2s-plugins",
   "author": {
@@ -14,7 +14,7 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "build": "babel src -d lib --ignore *.test.js",
+    "build": "babel src --ignore *.test.js -d lib ",
     "build:watch": "npm run build -- --watch"
   },
   "main": "lib/index.js",
@@ -24,6 +24,8 @@
     "babel-plugin-syntax-flow": "^6.18.0",
     "babel-template": "^6.26.0",
     "babel-types": "^6.26.0",
-    "lodash.snakecase": "^4.1.1"
+    "globby": "^6.1.0",
+    "slash": "^1.0.0",
+    "uppercamelcase": "^3.0.0"
   }
 }

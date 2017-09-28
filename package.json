@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "license": "MIT",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "test": "jest",
+    "precommit": "lint-staged",
+    "fmt": "prettier --write '**/*.{js,json}'",
+    "lint": "eslint .",
+    "postinstall": "yarn run fmt"
+  },
+  "lint-staged": {
+    "*.js": ["fmt", "lint", "git add"],
+    "*.json": ["fmt", "git add"]
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.7.2",
+    "eslint-config-precure": "^0.8.1",
+    "flow-bin": "^0.55.0",
+    "husky": "^0.14.3",
+    "jest": "^21.2.0",
+    "jest-cli": "^21.2.0",
+    "lerna": "^2.1.2",
+    "lint-staged": "^4.1.3",
+    "prettier": "^1.6.1"
+  }
+}

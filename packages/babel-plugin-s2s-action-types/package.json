@@ -1,0 +1,38 @@
+{
+  "name": "babel-plugin-s2s-action-types",
+  "version": "0.2.0",
+  "description": "generate action types",
+  "license": "MIT",
+  "repository": "akameco/s2s-plugins",
+  "author": {
+    "name": "akameco",
+    "email": "akameco.t@gmail.com",
+    "url": "akameco.github.io"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "prebuild": "rimraf lib",
+    "build": "babel src -d lib --ignore *.test.js",
+    "build:watch": "npm run build -- --watch"
+  },
+  "main": "lib/index.js",
+  "files": ["lib"],
+  "dependencies": {
+    "babel-add-flow-comments": "^0.2.0",
+    "babel-plugin-syntax-flow": "^6.18.0",
+    "babel-template": "^6.26.0",
+    "babel-types": "^6.26.0",
+    "lodash.snakecase": "^4.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-log": "^2.0.0",
+    "babel-plugin-tester": "^4.0.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-flow": "^6.23.0"
+  }
+}

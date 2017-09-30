@@ -36,6 +36,10 @@ const createUnion = union =>
     UNION: t.unionTypeAnnotation(union)
   })
 
+const createInitAction = wrapTemp(
+  `export type ReduxInitAction = { type: '@@INIT' }`
+)
+
 function trimExtension(path: string, ext: string = '.js') {
   return extname(path) === ext ? path.replace(ext, '') : path
 }
@@ -77,7 +81,7 @@ export default () => {
             throw new Error('require output option')
           }
 
-          const files = globby.sync(input, globOptions)
+          const files: string[] = globby.sync(input, globOptions)
 
           const imports = files
             .map(f => ({
@@ -98,9 +102,18 @@ export default () => {
             .map(createActionName)
             .map(name => t.genericTypeAnnotation(t.identifier(name)))
 
+          const initAction = 'ReduxInitAction'
+          union.unshift(t.genericTypeAnnotation(t.identifier(initAction)))
+
           const action = createUnion(union)
 
-          programPath.node.body = [...imports, t.noop(), action]
+          programPath.node.body = [
+            ...imports,
+            t.noop(),
+            createInitAction(),
+            t.noop(),
+            action
+          ]
 
           addFlowComment(programPath)
         }

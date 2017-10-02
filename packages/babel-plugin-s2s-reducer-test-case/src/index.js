@@ -37,7 +37,7 @@ const wrapTemp = (tmpl /* : string */) => template(tmpl, babylonOpts)
 
 const testBuilder = wrapTemp(`
 test(TEST_TITLE, () => {
-  expect(actions.ACTION()).toEqual(null)
+  expect(reducer(initialState, actions.ACTION())).toEqual(null)
 })
 `)
 

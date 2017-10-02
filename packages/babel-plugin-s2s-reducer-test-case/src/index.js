@@ -1,4 +1,5 @@
 // @flow
+import 'babel-polyfill'
 import fs from 'fs'
 import * as t from 'babel-types'
 import flowSyntax from 'babel-plugin-syntax-flow'

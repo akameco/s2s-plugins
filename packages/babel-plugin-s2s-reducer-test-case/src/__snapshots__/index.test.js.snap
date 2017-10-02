@@ -9,11 +9,11 @@ import reducer, {initialState} from './actions'
 import reducer, { initialState } from './actions';
 
 test('handle INCREMENT', () => {
-  expect(actions.increment()).toEqual(null);
+  expect(reducer(initialState, actions.increment())).toEqual(null);
 });
 
 test('handle DECREMENT', () => {
-  expect(actions.decrement()).toEqual(null);
+  expect(reducer(initialState, actions.decrement())).toEqual(null);
 });
 "
 `;
@@ -37,7 +37,7 @@ test('handle INCREMENT', () => {
 });
 
 test('handle DECREMENT', () => {
-  expect(actions.decrement()).toEqual(null);
+  expect(reducer(initialState, actions.decrement())).toEqual(null);
 });
 "
 `;

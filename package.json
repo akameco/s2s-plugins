@@ -18,6 +18,7 @@
     "*.json": ["fmt", "git add"]
   },
   "devDependencies": {
+    "all-contributors-cli": "^4.5.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-log": "^2.0.0",

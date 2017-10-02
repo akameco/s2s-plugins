@@ -3,3 +3,4 @@ node_moduels/*
 flow-typed/*
 flow-typed/npm/*
 __fixtures__/**
+coverage

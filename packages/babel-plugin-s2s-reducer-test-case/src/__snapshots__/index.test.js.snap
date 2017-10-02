@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic 1`] = `
+"
+import reducer, {initialState} from './actions'
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import reducer, { initialState } from './actions';
+
+test('handle INCREMENT', () => {
+  expect(actions.increment()).toEqual(null);
+});
+
+test('handle DECREMENT', () => {
+  expect(actions.decrement()).toEqual(null);
+});
+"
+`;
+
+exports[`exist test case 1`] = `
+"
+import reducer, {initialState} from './actions'
+import * as actions from './actions'
+
+test('handle INCREMENT', () => {
+  expect(actions.sample()).toEqual(null)
+})
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import reducer, { initialState } from './actions';
+import * as actions from './actions';
+
+test('handle INCREMENT', () => {
+  expect(actions.sample()).toEqual(null);
+});
+
+test('handle DECREMENT', () => {
+  expect(actions.decrement()).toEqual(null);
+});
+"
+`;

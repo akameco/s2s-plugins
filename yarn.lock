@@ -434,6 +434,10 @@ babel-log@^2.0.0:
   dependencies:
     ast-pretty-print "^2.0.0"
 
+babel-looks-like@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/babel-looks-like/-/babel-looks-like-0.1.0.tgz#e280e27d8a93e2ed0b47491f923ade5ac16ca01b"
+
 babel-messages@^6.23.0:
   version "6.23.0"
   resolved "https://registry.yarnpkg.com/babel-messages/-/babel-messages-6.23.0.tgz#f3cdf4703858035b2a2951c6ec5edf6c62f2630e"

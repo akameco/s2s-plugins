@@ -26,6 +26,7 @@
     "babel-template": "^6.26.0",
     "babel-types": "^6.26.0",
     "camelcase": "^4.1.0",
+    "s2s-helper-get-initial-state": "^0.0.0",
     "s2s-helper-get-reducer-case": "^0.1.1"
   }
 }

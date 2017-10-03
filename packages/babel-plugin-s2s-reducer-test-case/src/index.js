@@ -7,6 +7,7 @@ import template from 'babel-template'
 import camelCase from 'camelcase'
 import looksLike from 'babel-looks-like'
 import getReducerCase from 's2s-helper-get-reducer-case'
+import getInitialStae from 's2s-helper-get-initial-state'
 // import blog from 'babel-log'
 
 /* ::
@@ -37,7 +38,7 @@ const wrapTemp = (tmpl /* : string */) => template(tmpl, babylonOpts)
 
 const testBuilder = wrapTemp(`
 test(TEST_TITLE, () => {
-  expect(reducer(initialState, actions.ACTION())).toEqual(null)
+  expect(reducer(initialState, actions.ACTION())).toEqual(STATE)
 })
 `)
 
@@ -68,17 +69,20 @@ export default () => {
           }
         })
 
+        const code = fs.readFileSync(from, 'utf8')
+        const state = getInitialStae(code) || t.nullLiteral()
+
         function add(actionType /* : string */) {
           rootPath.pushContainer('body', [
             t.noop(),
             testBuilder({
               TEST_TITLE: t.stringLiteral(`handle ${actionType}`),
-              ACTION: t.identifier(camelCase(actionType))
+              ACTION: t.identifier(camelCase(actionType)),
+              STATE: state
             })
           ])
         }
 
-        const code = fs.readFileSync(from, 'utf8')
         const actions = getReducerCase(code)
 
         actions.filter(v => !existTestCases.includes(v)).forEach(add)

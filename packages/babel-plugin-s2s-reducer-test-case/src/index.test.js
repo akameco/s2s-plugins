@@ -4,12 +4,43 @@ import pluginTester from 'babel-plugin-tester'
 import plugin from '.'
 
 const fromPath = path.resolve(__dirname, '__fixtures__', 'reducer.js')
+const fromWithStatePath = path.resolve(
+  __dirname,
+  '__fixtures__',
+  'with-initial-state.js'
+)
 
 pluginTester({
   title: 'default',
   plugin,
   snapshot: true,
   pluginOptions: { from: fromPath },
+  tests: [
+    {
+      title: 'basic',
+      code: `
+import reducer, {initialState} from './actions'
+    `
+    },
+    {
+      title: 'exist test case',
+      code: `
+import reducer, {initialState} from './actions'
+import * as actions from './actions'
+
+test('handle INCREMENT', () => {
+  expect(actions.sample()).toEqual(null)
+})
+    `
+    }
+  ]
+})
+
+pluginTester({
+  title: 'with initial state',
+  plugin,
+  snapshot: true,
+  pluginOptions: { from: fromWithStatePath },
   tests: [
     {
       title: 'basic',

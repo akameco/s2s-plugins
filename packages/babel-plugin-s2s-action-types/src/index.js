@@ -40,6 +40,15 @@ export default () => {
           const typeNameSet: Set<string> = new Set()
           const actionMap: Map<string, Node> = new Map()
 
+          function addTypes(path: Path) {
+            const v: string = path.get('id').node.name
+            typeNameSet.add(v)
+            if (v.endsWith('Request')) {
+              typeNameSet.add(v.replace(/Request$/, 'Success'))
+              typeNameSet.add(v.replace(/Request$/, 'Failure'))
+            }
+          }
+
           programPath.traverse({
             ImportDeclaration(path: Path) {
               imports.push(path.node)
@@ -49,10 +58,10 @@ export default () => {
                 const right = path.get('right')
                 if (right.isUnionTypeAnnotation()) {
                   for (const t of right.get('types')) {
-                    typeNameSet.add(t.get('id').node.name)
+                    addTypes(t)
                   }
                 } else if (right.isGenericTypeAnnotation()) {
-                  typeNameSet.add(right.get('id').node.name)
+                  addTypes(right)
                 }
                 // remove `type Action = ...`
                 path.remove()

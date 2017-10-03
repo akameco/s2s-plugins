@@ -75,6 +75,24 @@ export type Action = Add;
         `
     },
     {
+      title: 'Request/Failure/Success pattern',
+      code: `
+export type Action = FetchRequest;
+        `
+    },
+    {
+      title: 'Request/Failure/Success pattern when Request/Success',
+      code: `
+export type Action = FetchRequest | FetchSuccess;
+        `
+    },
+    {
+      title: 'Request/Failure/Success pattern when exist Success/Failure',
+      code: `
+export type Action = FetchSuccess | FetchFailure;
+        `
+    },
+    {
       title: 'no type Action',
       code: `// @flow`
     }

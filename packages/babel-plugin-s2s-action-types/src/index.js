@@ -37,7 +37,7 @@ export default () => {
           removeFlowComment(file.ast.comments)
 
           const imports = []
-          const typeNames = []
+          const typeNameSet: Set<string> = new Set()
           const actionMap: Map<string, Node> = new Map()
 
           programPath.traverse({
@@ -49,10 +49,10 @@ export default () => {
                 const right = path.get('right')
                 if (right.isUnionTypeAnnotation()) {
                   for (const t of right.get('types')) {
-                    typeNames.push(t.get('id').node.name)
+                    typeNameSet.add(t.get('id').node.name)
                   }
                 } else if (right.isGenericTypeAnnotation()) {
-                  typeNames.push(right.get('id').node.name)
+                  typeNameSet.add(right.get('id').node.name)
                 }
                 // remove `type Action = ...`
                 path.remove()
@@ -66,6 +66,8 @@ export default () => {
           const prefix = usePrefix ? getPrefix(file, removePrefix) : ''
 
           // const CONS: 'CONS' = 'prefix/CONS'
+          const typeNames = Array.from(typeNameSet.values())
+
           const constantAST = typeNames.map(x => {
             const name = constantCase(x)
             const value = t.stringLiteral(prefix + name)

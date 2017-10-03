@@ -20,6 +20,7 @@
   "main": "lib/index.js",
   "files": ["lib"],
   "dependencies": {
+    "s2s-babel-flow-types": "^0.0.0",
     "babel-add-flow-comments": "^0.2.0",
     "babel-plugin-syntax-flow": "^6.18.0",
     "babel-template": "^6.26.0",

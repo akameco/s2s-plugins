@@ -11,25 +11,7 @@ import getInitialStae from 's2s-helper-get-initial-state'
 // import blog from 'babel-log'
 
 /* ::
-type Node = {
-  type: string,
-  [key: string | number]: any
-}
-
-type Path = {
-  type: string,
-  node: Node,
-  [key: string]: any,
-  get(key: string): Node
-}
-
-type Opts = {
-  from: string
-}
-
-type State = {
-  opts: Opts
-}
+import type {Path, State} from 's2s-babel-flow-types'
 */
 
 const babylonOpts = { sourceType: 'module', plugins: ['flow'] }

@@ -14,8 +14,7 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "build": "babel src --ignore *.test.js -d lib ",
-    "build:watch": "npm run build -- --watch"
+    "build": "babel src --ignore *.test.js -d lib "
   },
   "main": "lib/index.js",
   "files": ["lib"],

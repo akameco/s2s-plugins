@@ -1,12 +1,12 @@
 // @flow
-import { relative, normalize, dirname, extname } from 'path'
+import { normalize, dirname } from 'path'
 import flowSyntax from 'babel-plugin-syntax-flow'
 import * as t from 'babel-types'
 import template from 'babel-template'
 import { removeFlowComment, addFlowComment } from 'babel-add-flow-comments'
 import globby from 'globby'
-import slash from 'slash'
 import upperCamelCase from 'uppercamelcase'
+import { getImportPath } from 's2s-utils'
 import type { Path, State } from 's2s-babel-flow-types'
 
 const babylonOpts = { sourceType: 'module', plugins: ['flow'] }
@@ -21,19 +21,6 @@ const createUnion = union =>
 const createInitAction = wrapTemp(
   `export type ReduxInitAction = { type: '@@INIT' }`,
 )
-
-function trimExtension(path: string, ext: string = '.js') {
-  return extname(path) === ext ? path.replace(ext, '') : path
-}
-
-function getImportPath(from: string, to: string): string {
-  const relativePath = slash(relative(dirname(from), to))
-  const fomattedPath = trimExtension(relativePath)
-  if (!/^\.\.?/.test(fomattedPath)) {
-    return `./${fomattedPath}`
-  }
-  return fomattedPath
-}
 
 function createActionName(path: string) {
   const parentPath = normalize(dirname(path)).split('/')

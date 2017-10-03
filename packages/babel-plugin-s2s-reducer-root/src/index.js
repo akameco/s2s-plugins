@@ -1,12 +1,12 @@
 // @flow
-import { relative, normalize, dirname, extname } from 'path'
+import { normalize, dirname } from 'path'
 import * as t from 'babel-types'
 import template from 'babel-template'
 import { removeFlowComment, addFlowComment } from 'babel-add-flow-comments'
 import globby from 'globby'
-import slash from 'slash'
 import upperCamelCase from 'uppercamelcase'
 import type { Path, State } from 's2s-babel-flow-types'
+import { getImportPath } from 's2s-utils'
 
 const wrapTemp = (tmpl: string) =>
   template(tmpl, { sourceType: 'module', plugins: ['flow'] })
@@ -14,18 +14,6 @@ const wrapTemp = (tmpl: string) =>
 const builders = {
   redux: wrapTemp(`import { combineReducers } from 'redux'`),
   root: wrapTemp(`export default combineReducers(OBJ)`),
-}
-
-const trimExtension = (path: string, ext: string = '.js') =>
-  extname(path) === ext ? path.replace(ext, '') : path
-
-function getImportPath(from: string, to: string): string {
-  const relativePath = slash(relative(dirname(from), to))
-  const fomattedPath = trimExtension(relativePath)
-  if (!/^\.\.?/.test(fomattedPath)) {
-    return `./${fomattedPath}`
-  }
-  return fomattedPath
 }
 
 function getParentDirName(path: string) {

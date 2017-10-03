@@ -14,7 +14,7 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "build": "babel src -d lib --ignore *.test.js"
+    "build": "babel src -d lib --ignore *.test.js,__fixtures__"
   },
   "main": "lib/index.js",
   "files": ["lib"],
@@ -26,6 +26,7 @@
     "babel-template": "^6.26.0",
     "babel-types": "^6.26.0",
     "camelcase": "^4.1.0",
+    "s2s-helper-get-initial-state": "^0.0.0",
     "s2s-helper-get-reducer-case": "^0.1.1"
   }
 }

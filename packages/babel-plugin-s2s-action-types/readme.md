@@ -34,3 +34,37 @@ export type Increment = {
 
 export type Action = Increment;
 ```
+
+### Request/Success/Failure pattern
+
+#### In:
+
+```js
+export type Action = FetchRequest
+```
+
+#### Out:
+
+```js
+export const FETCH_REQUEST: "app/counter/FETCH_REQUEST" = "app/counter/FETCH_REQUEST";
+export const FETCH_SUCCESS: "app/counter/FETCH_SUCCESS" = "app/counter/FETCH_SUCCESS";
+export const FETCH_FAILURE: "app/counter/FETCH_FAILURE" = "app/counter/FETCH_FAILURE";
+
+export const Actions = {
+  FETCH_REQUEST,
+  FETCH_SUCCESS,
+  FETCH_FAILURE
+};
+
+export type FetchRequest = {
+  type: typeof FETCH_REQUEST
+};
+export type FetchSuccess = {
+  type: typeof FETCH_SUCCESS
+};
+export type FetchFailure = {
+  type: typeof FETCH_FAILURE
+};
+
+export type Action = FetchRequest | FetchSuccess | FetchFailure;
+```

@@ -6,8 +6,8 @@ test('get initalState', () => {
 export const initialState = {count: 1}
 `
 
-  const actions = helper(fixture)
-  expect(actions).toMatchSnapshot()
+  const state = helper(fixture)
+  expect(state).toMatchSnapshot()
 })
 
 test('get initalState with flow', () => {
@@ -15,8 +15,8 @@ test('get initalState with flow', () => {
 export const initialState: State = {count: 1}
 `
 
-  const actions = helper(fixture)
-  expect(actions).toMatchSnapshot()
+  const state = helper(fixture)
+  expect(state).toMatchSnapshot()
 })
 
 test('not get initalState', () => {
@@ -24,6 +24,6 @@ test('not get initalState', () => {
 export const x = {count: 1}
 `
 
-  const actions = helper(fixture)
-  expect(actions).toBe(null)
+  const state = helper(fixture)
+  expect(state).toBe(null)
 })

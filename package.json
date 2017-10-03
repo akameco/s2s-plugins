@@ -12,6 +12,8 @@
     "fmt": "prettier --write '**/*.{js,json}'",
     "lint": "eslint .",
     "prebuild": "rimraf ./packages/**/lib",
+    "prepublish": "yarn build",
+    "publish": "lerna publish",
     "build": "lerna run build",
     "prepare": "yarn build",
     "postinstall": "yarn fmt"

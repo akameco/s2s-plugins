@@ -2,5 +2,5 @@ node_moduels/*
 **/lib/*
 flow-typed/*
 flow-typed/npm/*
-__fixtures__/**
+**/__fixtures__/**/*.js
 coverage

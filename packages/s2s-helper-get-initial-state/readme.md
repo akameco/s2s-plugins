@@ -15,4 +15,19 @@ export const initialState = {
 `
 
 helper(fixture)
+// Node "ObjectExpression"
+//   properties: Array [
+//     Node "ObjectProperty"
+//       computed: false
+//       key: Node "Identifier"
+//         name: "count"
+//       method: false
+//       shorthand: false
+//       value: Node "NumericLiteral"
+//         extra: Object {
+//           "raw": "1",
+//           "rawValue": 1,
+//         }
+//         value: 1,
+//   ]
 ```

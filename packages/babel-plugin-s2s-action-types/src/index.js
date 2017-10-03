@@ -18,7 +18,7 @@ const builders = {
   constants: wrapTemp(`export const NAME: VALUE = VALUE`),
   actions: wrapTemp(`export const Actions = VALUE`),
   actionType: wrapTemp(`export type NAME = { type: typeof VALUE }`),
-  action: wrapTemp(`export type Action = UNION`)
+  action: wrapTemp(`export type Action = UNION`),
 }
 
 function getPrefix({ opts: { filename } }: File, removePrefix: string = '') {
@@ -69,7 +69,7 @@ export default () => {
                 const node = path.get('id').node
                 actionMap.set(node.name, path.parentPath.node)
               }
-            }
+            },
           })
 
           const prefix = usePrefix ? getPrefix(file, removePrefix) : ''
@@ -83,7 +83,7 @@ export default () => {
 
             const actionName = t.identifier(name)
             actionName.typeAnnotation = t.typeAnnotation(
-              t.genericTypeAnnotation(value)
+              t.genericTypeAnnotation(value),
             )
 
             return builders.constants({ NAME: actionName, VALUE: value })
@@ -95,7 +95,7 @@ export default () => {
           })
 
           const actionsAST = builders.actions({
-            VALUE: t.objectExpression(propsAST)
+            VALUE: t.objectExpression(propsAST),
           })
 
           // type ActionA = { typeof ACTION_A }
@@ -106,16 +106,16 @@ export default () => {
 
             return builders.actionType({
               NAME: t.identifier(name),
-              VALUE: t.identifier(constantCase(name))
+              VALUE: t.identifier(constantCase(name)),
             })
           })
 
           const union = typeNames.map(name =>
-            t.genericTypeAnnotation(t.identifier(name))
+            t.genericTypeAnnotation(t.identifier(name)),
           )
 
           const action = builders.action({
-            UNION: t.unionTypeAnnotation(union)
+            UNION: t.unionTypeAnnotation(union),
           })
 
           if (imports.length > 0) {
@@ -130,12 +130,12 @@ export default () => {
             t.noop(),
             ...typesAst,
             t.noop(),
-            action
+            action,
           ]
 
           addFlowComment(programPath)
-        }
-      }
-    }
+        },
+      },
+    },
   }
 }

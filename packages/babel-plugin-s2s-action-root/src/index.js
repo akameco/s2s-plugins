@@ -15,11 +15,11 @@ const wrapTemp = (tmpl: string) => template(tmpl, babylonOpts)
 
 const createUnion = union =>
   wrapTemp(`export type Action = UNION`)({
-    UNION: t.unionTypeAnnotation(union)
+    UNION: t.unionTypeAnnotation(union),
   })
 
 const createInitAction = wrapTemp(
-  `export type ReduxInitAction = { type: '@@INIT' }`
+  `export type ReduxInitAction = { type: '@@INIT' }`,
 )
 
 function trimExtension(path: string, ext: string = '.js') {
@@ -52,7 +52,7 @@ export default () => {
           const { input, output } = state.opts
           const globOptions = Object.assign(
             { absolute: true },
-            state.opts.globOptions
+            state.opts.globOptions,
           )
 
           if (!input) {
@@ -68,12 +68,12 @@ export default () => {
           const imports = files
             .map(f => ({
               source: getImportPath(output, f),
-              name: createActionName(f)
+              name: createActionName(f),
             }))
             .map(({ name, source }) => {
               const im = t.importDeclaration(
                 [t.importSpecifier(t.identifier(name), t.identifier('Action'))],
-                t.stringLiteral(source)
+                t.stringLiteral(source),
               )
               // $FlowFixMe
               im.importKind = 'type'
@@ -94,12 +94,12 @@ export default () => {
             t.noop(),
             createInitAction(),
             t.noop(),
-            action
+            action,
           ]
 
           addFlowComment(programPath)
-        }
-      }
-    }
+        },
+      },
+    },
   }
 }

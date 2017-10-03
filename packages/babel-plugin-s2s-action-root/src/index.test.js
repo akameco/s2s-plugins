@@ -15,14 +15,14 @@ pluginTester({
   pluginOptions: {
     input: 'src/__fixtures__/**/*.js',
     output,
-    globOptions: { cwd }
+    globOptions: { cwd },
   },
   tests: [
     {
       title: 'options',
-      code: `// @flow`
-    }
-  ]
+      code: `// @flow`,
+    },
+  ],
 })
 
 pluginTester({
@@ -32,24 +32,24 @@ pluginTester({
     {
       title: 'error',
       code: `// throw error`,
-      error: /require input option/
-    }
-  ]
+      error: /require input option/,
+    },
+  ],
 })
 
 pluginTester({
   plugin,
   babelOptions: { filename },
   pluginOptions: {
-    input: 'src/__fixtures__/**/*.js'
+    input: 'src/__fixtures__/**/*.js',
   },
   tests: [
     {
       title: 'error',
       code: `// throw error`,
-      error: /require output option/
-    }
-  ]
+      error: /require output option/,
+    },
+  ],
 })
 
 pluginTester({
@@ -59,12 +59,12 @@ pluginTester({
   pluginOptions: {
     input: 'src/**/actionTypes.js',
     output,
-    globOptions: { cwd }
+    globOptions: { cwd },
   },
   tests: [
     {
       title: 'glob options',
-      code: `// show options`
-    }
-  ]
+      code: `// show options`,
+    },
+  ],
 })

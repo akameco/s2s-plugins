@@ -14,20 +14,20 @@ pluginTester({
   pluginOptions: {
     input: '__fixtures__/**/reducer.js',
     output,
-    globOptions: { cwd }
+    globOptions: { cwd },
   },
   tests: [
     {
       title: 'options',
-      code: `// @flow`
+      code: `// @flow`,
     },
     {
       title: 'no parse',
       code: `// @flow
       const state = { ...state, a: 1}
-      `
-    }
-  ]
+      `,
+    },
+  ],
 })
 
 pluginTester({
@@ -37,14 +37,14 @@ pluginTester({
   pluginOptions: {
     input: './**/reducer.js',
     output,
-    globOptions: { cwd }
+    globOptions: { cwd },
   },
   tests: [
     {
       title: 'glob options',
-      code: `// show options`
-    }
-  ]
+      code: `// show options`,
+    },
+  ],
 })
 
 pluginTester({
@@ -54,9 +54,9 @@ pluginTester({
     {
       title: 'error',
       code: `// throw error`,
-      error: /require input option/
-    }
-  ]
+      error: /require input option/,
+    },
+  ],
 })
 
 pluginTester({
@@ -67,7 +67,7 @@ pluginTester({
     {
       title: 'error',
       code: `// throw error`,
-      error: /require output option/
-    }
-  ]
+      error: /require output option/,
+    },
+  ],
 })

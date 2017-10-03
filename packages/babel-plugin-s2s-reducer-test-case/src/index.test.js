@@ -12,7 +12,7 @@ const testCases = [
     title: 'basic',
     code: `
 import reducer, {initialState} from './actions'
-    `
+    `,
   },
   {
     title: 'exist test case',
@@ -23,8 +23,8 @@ import * as actions from './actions'
 test('handle INCREMENT', () => {
   expect(actions.sample()).toEqual(null)
 })
-    `
-  }
+    `,
+  },
 ]
 
 pluginTester({
@@ -32,7 +32,7 @@ pluginTester({
   plugin,
   snapshot: true,
   pluginOptions: { from: fromPath },
-  tests: testCases
+  tests: testCases,
 })
 
 pluginTester({
@@ -40,7 +40,7 @@ pluginTester({
   plugin,
   snapshot: true,
   pluginOptions: { from: fromWithStatePath },
-  tests: testCases
+  tests: testCases,
 })
 
 pluginTester({
@@ -49,7 +49,7 @@ pluginTester({
     {
       title: 'throw error',
       code: `// throw error`,
-      error: /required from option/
-    }
-  ]
+      error: /required from option/,
+    },
+  ],
 })

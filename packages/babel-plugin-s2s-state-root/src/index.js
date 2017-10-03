@@ -13,7 +13,7 @@ const wrapTemp = (tmpl: string) =>
 
 const createObjectType = input =>
   wrapTemp(`export type State = STATE`)({
-    STATE: t.objectTypeAnnotation(input, null, null)
+    STATE: t.objectTypeAnnotation(input, null, null),
   })
 
 const trimExtension = (path: string, ext: string = '.js') =>
@@ -39,7 +39,7 @@ function inheritsOpts() {
     manipulateOptions(opts: Object, parserOpts: Object) {
       parserOpts.plugins.push('flow')
       parserOpts.plugins.push('objectRestSpread')
-    }
+    },
   }
 }
 
@@ -54,7 +54,7 @@ export default () => {
         const { input, output } = state.opts
         const globOptions = Object.assign(
           { absolute: true },
-          state.opts.globOptions
+          state.opts.globOptions,
         )
 
         if (!input) {
@@ -70,12 +70,12 @@ export default () => {
         const imports = files
           .map(f => ({
             source: getImportPath(output, f),
-            name: getParentDirName(f)
+            name: getParentDirName(f),
           }))
           .map(({ name, source }) => {
             const im = t.importDeclaration(
               [t.importSpecifier(t.identifier(name), t.identifier('State'))],
-              t.stringLiteral(source)
+              t.stringLiteral(source),
             )
             // $FlowFixMe
             im.importKind = 'type'
@@ -86,13 +86,13 @@ export default () => {
           .map(getParentDirName)
           .map(x => t.identifier(x))
           .map(name =>
-            t.objectTypeProperty(name, t.genericTypeAnnotation(name))
+            t.objectTypeProperty(name, t.genericTypeAnnotation(name)),
           )
 
         programPath.node.body = [...imports, t.noop(), createObjectType(props)]
 
         addFlowComment(programPath)
-      }
-    }
+      },
+    },
   }
 }

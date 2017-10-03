@@ -1,11 +1,11 @@
 import * as Actions from './actionTypes'
 
 type State = {
-  count: number
+  count: number,
 }
 
 const initialState: State = {
-  count: 0
+  count: 0,
 }
 
 export default function(state: State = initialState, action) {

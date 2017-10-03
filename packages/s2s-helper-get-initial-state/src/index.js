@@ -10,7 +10,7 @@ type Code = string
 export default function getReducerCase(code /* : Code */) {
   const ast = parse(code, {
     sourceType: 'module',
-    plugins: ['flow', 'objectRestSpread']
+    plugins: ['flow', 'objectRestSpread'],
   })
 
   let initialState = null
@@ -21,7 +21,7 @@ export default function getReducerCase(code /* : Code */) {
       if (idPath.node.name === 'initialState') {
         initialState = path.get('init').node
       }
-    }
+    },
   })
 
   return initialState

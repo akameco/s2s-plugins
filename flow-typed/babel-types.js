@@ -645,7 +645,7 @@ declare module 'babel-types' {
 
         | BabelNodeImportSpecifier
         | BabelNodeImportDefaultSpecifier
-        | BabelNodeImportNamespaceSpecifier
+        | BabelNodeImportNamespaceSpecifier,
     ];
     source: BabelNodeStringLiteral;
   }
@@ -1418,65 +1418,65 @@ declare module 'babel-types' {
 
   declare function anyTypeAnnotation(): BabelNodeAnyTypeAnnotation
   declare function arrayExpression(
-    elements?: Array<null | BabelNodeExpression | BabelNodeSpreadElement>
+    elements?: Array<null | BabelNodeExpression | BabelNodeSpreadElement>,
   ): BabelNodeArrayExpression
   declare function arrayPattern(
     elements: Array<BabelNodeExpression>,
     typeAnnotation: any,
-    decorators?: Array<BabelNodeDecorator>
+    decorators?: Array<BabelNodeDecorator>,
   ): BabelNodeArrayPattern
   declare function arrayTypeAnnotation(
-    elementType: any
+    elementType: any,
   ): BabelNodeArrayTypeAnnotation
   declare function arrowFunctionExpression(
     params: Array<BabelNodeLVal>,
     body: BabelNodeBlockStatement | BabelNodeExpression,
     async?: boolean,
     returnType?: any,
-    typeParameters?: any
+    typeParameters?: any,
   ): BabelNodeArrowFunctionExpression
   declare function assignmentExpression(
     operator: BabelNodeAssignmentOperator,
     left: BabelNodeLVal,
-    right: BabelNodeExpression
+    right: BabelNodeExpression,
   ): BabelNodeAssignmentExpression
   declare function assignmentPattern(
     left: BabelNodeIdentifier,
     right: BabelNodeExpression,
-    decorators?: any
+    decorators?: any,
   ): BabelNodeAssignmentPattern
   declare function awaitExpression(
-    argument: BabelNodeExpression
+    argument: BabelNodeExpression,
   ): BabelNodeAwaitExpression
   declare function binaryExpression(
     operator: BabelBinaryOperator,
     left: BabelNodeExpression,
-    right: BabelNodeExpression
+    right: BabelNodeExpression,
   ): BabelNodeBinaryExpression
   declare function bindExpression(
     object: any,
-    callee: any
+    callee: any,
   ): BabelNodeBindExpression
   declare function blockStatement(
     body: Array<BabelNodeStatement>,
-    directives?: Array<BabelNodeDirective>
+    directives?: Array<BabelNodeDirective>,
   ): BabelNodeBlockStatement
   declare function booleanLiteral(value: boolean): BabelNodeBooleanLiteral
   declare function booleanLiteralTypeAnnotation(): BabelNodeBooleanLiteralTypeAnnotation
   declare function booleanTypeAnnotation(): BabelNodeBooleanTypeAnnotation
   declare function breakStatement(
-    label?: ?BabelNodeIdentifier
+    label?: ?BabelNodeIdentifier,
   ): BabelNodeBreakStatement
   declare function callExpression(
     callee: BabelNodeExpression,
-    _arguments: Array<BabelNodeExpression | BabelNodeSpreadElement>
+    _arguments: Array<BabelNodeExpression | BabelNodeSpreadElement>,
   ): BabelNodeCallExpression
   declare function catchClause(
     param: BabelNodeIdentifier,
-    body: BabelNodeBlockStatement
+    body: BabelNodeBlockStatement,
   ): BabelNodeCatchClause
   declare function classBody(
-    body: Array<BabelNodeClassMethod | BabelNodeClassProperty>
+    body: Array<BabelNodeClassMethod | BabelNodeClassProperty>,
   ): BabelNodeClassBody
   declare function classDeclaration(
     id: BabelNodeIdentifier,
@@ -1486,7 +1486,7 @@ declare module 'babel-types' {
     mixins?: any,
     typeParameters?: any,
     superTypeParameters?: any,
-    _implements?: any
+    _implements?: any,
   ): BabelNodeClassDeclaration
   declare function classExpression(
     id?: ?BabelNodeIdentifier,
@@ -1496,11 +1496,11 @@ declare module 'babel-types' {
     _implements?: any,
     mixins?: any,
     superTypeParameters?: any,
-    typeParameters?: any
+    typeParameters?: any,
   ): BabelNodeClassExpression
   declare function classImplements(
     id: any,
-    typeParameters: any
+    typeParameters: any,
   ): BabelNodeClassImplements
   declare function classMethod(
     kind: ?('get' | 'set' | 'method' | 'constructor'),
@@ -1513,116 +1513,116 @@ declare module 'babel-types' {
     decorators?: any,
     generator?: boolean,
     returnType?: any,
-    typeParameters?: any
+    typeParameters?: any,
   ): BabelNodeClassMethod
   declare function classProperty(
     key: any,
     value: any,
     typeAnnotation: any,
     decorators: any,
-    computed?: boolean
+    computed?: boolean,
   ): BabelNodeClassProperty
   declare function conditionalExpression(
     test: BabelNodeExpression,
     consequent: BabelNodeExpression,
-    alternate: BabelNodeExpression
+    alternate: BabelNodeExpression,
   ): BabelNodeConditionalExpression
   declare function continueStatement(
-    label?: ?BabelNodeIdentifier
+    label?: ?BabelNodeIdentifier,
   ): BabelNodeContinueStatement
   declare function debuggerStatement(): BabelNodeDebuggerStatement
   declare function declareClass(
     id: any,
     typeParameters: any,
     _extends: any,
-    body: any
+    body: any,
   ): BabelNodeDeclareClass
   declare function declareFunction(id: any): BabelNodeDeclareFunction
   declare function declareInterface(
     id: any,
     typeParameters: any,
     _extends: any,
-    body: any
+    body: any,
   ): BabelNodeDeclareInterface
   declare function declareModule(id: any, body: any): BabelNodeDeclareModule
   declare function declareModuleExports(
-    typeAnnotation: any
+    typeAnnotation: any,
   ): BabelNodeDeclareModuleExports
   declare function declareTypeAlias(
     id: any,
     typeParameters: any,
-    right: any
+    right: any,
   ): BabelNodeDeclareTypeAlias
   declare function declareVariable(id: any): BabelNodeDeclareVariable
   declare function decorator(
-    expression: BabelNodeExpression
+    expression: BabelNodeExpression,
   ): BabelNodeDecorator
   declare function directive(
-    value: BabelNodeDirectiveLiteral
+    value: BabelNodeDirectiveLiteral,
   ): BabelNodeDirective
   declare function directiveLiteral(value: string): BabelNodeDirectiveLiteral
   declare function doExpression(
-    body: BabelNodeBlockStatement
+    body: BabelNodeBlockStatement,
   ): BabelNodeDoExpression
   declare function doWhileStatement(
     test: BabelNodeExpression,
-    body: BabelNodeStatement
+    body: BabelNodeStatement,
   ): BabelNodeDoWhileStatement
   declare function emptyStatement(): BabelNodeEmptyStatement
   declare function emptyTypeAnnotation(): BabelNodeEmptyTypeAnnotation
   declare function existentialTypeParam(): BabelNodeExistentialTypeParam
   declare function exportAllDeclaration(
-    source: BabelNodeStringLiteral
+    source: BabelNodeStringLiteral,
   ): BabelNodeExportAllDeclaration
   declare function exportDefaultDeclaration(
     declaration:
       | BabelNodeFunctionDeclaration
       | BabelNodeClassDeclaration
-      | BabelNodeExpression
+      | BabelNodeExpression,
   ): BabelNodeExportDefaultDeclaration
   declare function exportDefaultSpecifier(
-    exported: BabelNodeIdentifier
+    exported: BabelNodeIdentifier,
   ): BabelNodeExportDefaultSpecifier
   declare function exportNamedDeclaration(
     declaration?: ?BabelNodeDeclaration,
     specifiers: Array<BabelNodeExportSpecifier>,
-    source?: ?BabelNodeStringLiteral
+    source?: ?BabelNodeStringLiteral,
   ): BabelNodeExportNamedDeclaration
   declare function exportNamespaceSpecifier(
-    exported: BabelNodeIdentifier
+    exported: BabelNodeIdentifier,
   ): BabelNodeExportNamespaceSpecifier
   declare function exportSpecifier(
     local: BabelNodeIdentifier,
-    exported: BabelNodeIdentifier
+    exported: BabelNodeIdentifier,
   ): BabelNodeExportSpecifier
   declare function expressionStatement(
-    expression: BabelNodeExpression
+    expression: BabelNodeExpression,
   ): BabelNodeExpressionStatement
   declare function file(
     program: BabelNodeProgram,
     comments: any,
-    tokens: any
+    tokens: any,
   ): BabelNodeFile
   declare function forAwaitStatement(
     left: BabelNodeVariableDeclaration | BabelNodeLVal,
     right: BabelNodeExpression,
-    body: BabelNodeStatement
+    body: BabelNodeStatement,
   ): BabelNodeForAwaitStatement
   declare function forInStatement(
     left: BabelNodeVariableDeclaration | BabelNodeLVal,
     right: BabelNodeExpression,
-    body: BabelNodeStatement
+    body: BabelNodeStatement,
   ): BabelNodeForInStatement
   declare function forOfStatement(
     left: BabelNodeVariableDeclaration | BabelNodeLVal,
     right: BabelNodeExpression,
-    body: BabelNodeStatement
+    body: BabelNodeStatement,
   ): BabelNodeForOfStatement
   declare function forStatement(
     init?: ?BabelNodeVariableDeclaration | BabelNodeExpression,
     test?: ?BabelNodeExpression,
     update?: ?BabelNodeExpression,
-    body: BabelNodeStatement
+    body: BabelNodeStatement,
   ): BabelNodeForStatement
   declare function functionDeclaration(
     id: BabelNodeIdentifier,
@@ -1631,7 +1631,7 @@ declare module 'babel-types' {
     generator?: boolean,
     async?: boolean,
     returnType?: any,
-    typeParameters?: any
+    typeParameters?: any,
   ): BabelNodeFunctionDeclaration
   declare function functionExpression(
     id?: ?BabelNodeIdentifier,
@@ -1640,133 +1640,133 @@ declare module 'babel-types' {
     generator?: boolean,
     async?: boolean,
     returnType?: any,
-    typeParameters?: any
+    typeParameters?: any,
   ): BabelNodeFunctionExpression
   declare function functionTypeAnnotation(
     typeParameters: any,
     params: any,
     rest: any,
-    returnType: any
+    returnType: any,
   ): BabelNodeFunctionTypeAnnotation
   declare function functionTypeParam(
     name: any,
-    typeAnnotation: any
+    typeAnnotation: any,
   ): BabelNodeFunctionTypeParam
   declare function genericTypeAnnotation(
     id: any,
-    typeParameters: any
+    typeParameters: any,
   ): BabelNodeGenericTypeAnnotation
   declare function identifier(
     name: string,
     decorators?: Array<BabelNodeDecorator>,
-    typeAnnotation?: any
+    typeAnnotation?: any,
   ): BabelNodeIdentifier
   declare function ifStatement(
     test: BabelNodeExpression,
     consequent: BabelNodeStatement,
-    alternate?: ?BabelNodeStatement
+    alternate?: ?BabelNodeStatement,
   ): BabelNodeIfStatement
   declare function importDeclaration(
     specifiers: any,
-    source: BabelNodeStringLiteral
+    source: BabelNodeStringLiteral,
   ): BabelNodeImportDeclaration
   declare function importDefaultSpecifier(
-    local: BabelNodeIdentifier
+    local: BabelNodeIdentifier,
   ): BabelNodeImportDefaultSpecifier
   declare function importNamespaceSpecifier(
-    local: BabelNodeIdentifier
+    local: BabelNodeIdentifier,
   ): BabelNodeImportNamespaceSpecifier
   declare function importSpecifier(
     local: BabelNodeIdentifier,
-    imported: BabelNodeIdentifier
+    imported: BabelNodeIdentifier,
   ): BabelNodeImportSpecifier
   declare function interfaceDeclaration(
     id: any,
     typeParameters: any,
     _extends: any,
-    body: any
+    body: any,
   ): BabelNodeInterfaceDeclaration
   declare function interfaceExtends(
     id: any,
-    typeParameters: any
+    typeParameters: any,
   ): BabelNodeInterfaceExtends
   declare function intersectionTypeAnnotation(
-    types: any
+    types: any,
   ): BabelNodeIntersectionTypeAnnotation
   declare function jSXAttribute(
     name: BabelNodeJSXIdentifier | BabelNodeJSXNamespacedName,
     value?:
       | ?BabelNodeJSXElement
       | BabelNodeStringLiteral
-      | BabelNodeJSXExpressionContainer
+      | BabelNodeJSXExpressionContainer,
   ): BabelNodeJSXAttribute
   declare function jSXClosingElement(
-    name: BabelNodeJSXIdentifier | BabelNodeJSXMemberExpression
+    name: BabelNodeJSXIdentifier | BabelNodeJSXMemberExpression,
   ): BabelNodeJSXClosingElement
   declare function jSXElement(
     openingElement: BabelNodeJSXOpeningElement,
     closingElement?: ?BabelNodeJSXClosingElement,
     children: any,
-    selfClosing: any
+    selfClosing: any,
   ): BabelNodeJSXElement
   declare function jSXEmptyExpression(): BabelNodeJSXEmptyExpression
   declare function jSXExpressionContainer(
-    expression: BabelNodeExpression
+    expression: BabelNodeExpression,
   ): BabelNodeJSXExpressionContainer
   declare function jSXIdentifier(name: string): BabelNodeJSXIdentifier
   declare function jSXMemberExpression(
     object: BabelNodeJSXMemberExpression | BabelNodeJSXIdentifier,
-    property: BabelNodeJSXIdentifier
+    property: BabelNodeJSXIdentifier,
   ): BabelNodeJSXMemberExpression
   declare function jSXNamespacedName(
     namespace: BabelNodeJSXIdentifier,
-    name: BabelNodeJSXIdentifier
+    name: BabelNodeJSXIdentifier,
   ): BabelNodeJSXNamespacedName
   declare function jSXOpeningElement(
     name: BabelNodeJSXIdentifier | BabelNodeJSXMemberExpression,
     selfClosing?: boolean,
-    attributes: any
+    attributes: any,
   ): BabelNodeJSXOpeningElement
   declare function jSXSpreadAttribute(
-    argument: BabelNodeExpression
+    argument: BabelNodeExpression,
   ): BabelNodeJSXSpreadAttribute
   declare function jSXText(value: string): BabelNodeJSXText
   declare function labeledStatement(
     label: BabelNodeIdentifier,
-    body: BabelNodeStatement
+    body: BabelNodeStatement,
   ): BabelNodeLabeledStatement
   declare function logicalExpression(
     operator: BabelNodeLogicalOperator,
     left: BabelNodeExpression,
-    right: BabelNodeExpression
+    right: BabelNodeExpression,
   ): BabelNodeLogicalExpression
   declare function memberExpression(
     object: BabelNodeExpression,
     property: BabelNodeExpression | BabelNodeIdentifier,
-    computed?: boolean
+    computed?: boolean,
   ): BabelNodeMemberExpression
   declare function metaProperty(
     meta: string,
-    property: string
+    property: string,
   ): BabelNodeMetaProperty
   declare function mixedTypeAnnotation(): BabelNodeMixedTypeAnnotation
   declare function newExpression(
     callee: BabelNodeExpression,
-    _arguments: Array<BabelNodeExpression>
+    _arguments: Array<BabelNodeExpression>,
   ): BabelNodeNewExpression
   declare function noop(): BabelNodeNoop
   declare function nullLiteral(): BabelNodeNullLiteral
   declare function nullLiteralTypeAnnotation(): BabelNodeNullLiteralTypeAnnotation
   declare function nullableTypeAnnotation(
-    typeAnnotation: any
+    typeAnnotation: any,
   ): BabelNodeNullableTypeAnnotation
   declare function numberTypeAnnotation(): BabelNodeNumberTypeAnnotation
   declare function numericLiteral(value: number): BabelNodeNumericLiteral
   declare function numericLiteralTypeAnnotation(): BabelNodeNumericLiteralTypeAnnotation
   declare function objectExpression(
     properties: Array<
-      BabelNodeObjectMethod | BabelNodeObjectProperty | BabelNodeSpreadProperty
-    >
+      BabelNodeObjectMethod | BabelNodeObjectProperty | BabelNodeSpreadProperty,
+    >,
   ): BabelNodeObjectExpression
   declare function objectMethod(
     kind: BabelNodeObjectMethodKind,
@@ -1778,156 +1778,156 @@ declare module 'babel-types' {
     decorators?: any,
     generator?: boolean,
     returnType?: any,
-    typeParameters?: any
+    typeParameters?: any,
   ): BabelNodeObjectMethod
   declare function objectPattern(
     properties: Array<BabelNodeRestProperty | BabelNodeProperty>,
     typeAnnotation: any,
-    decorators?: Array<BabelNodeDecorator>
+    decorators?: Array<BabelNodeDecorator>,
   ): BabelNodeObjectPattern
   declare function objectProperty(
     key: BabelNodeExpression | BabelNodeIdentifier | BabelNodeLiteral,
     value: BabelNodeExpression,
     computed?: boolean,
     shorthand?: boolean,
-    decorators: ?Array<BabelNodeDecorator>
+    decorators: ?Array<BabelNodeDecorator>,
   ): BabelNodeObjectProperty
   declare function objectTypeAnnotation(
     properties: any,
     indexers: any,
-    callProperties: any
+    callProperties: any,
   ): BabelNodeObjectTypeAnnotation
   declare function objectTypeCallProperty(
-    value: any
+    value: any,
   ): BabelNodeObjectTypeCallProperty
   declare function objectTypeIndexer(
     id: any,
     key: any,
-    value: any
+    value: any,
   ): BabelNodeObjectTypeIndexer
   declare function objectTypeProperty(
     key: any,
-    value: any
+    value: any,
   ): BabelNodeObjectTypeProperty
   declare function parenthesizedExpression(
-    expression: BabelNodeExpression
+    expression: BabelNodeExpression,
   ): BabelNodeParenthesizedExpression
   declare function program(
     body: Array<BabelNodeStatement>,
-    directives?: Array<BabelNodeDirective>
+    directives?: Array<BabelNodeDirective>,
   ): BabelNodeProgram
   declare function qualifiedTypeIdentifier(
     id: any,
-    qualification: any
+    qualification: any,
   ): BabelNodeQualifiedTypeIdentifier
   declare function regExpLiteral(
     pattern: string,
-    flags?: string
+    flags?: string,
   ): BabelNodeRegExpLiteral
   declare function restElement(
     argument: BabelNodeLVal,
     typeAnnotation: any,
-    decorators?: any
+    decorators?: any,
   ): BabelNodeRestElement
   declare function restProperty(argument: BabelNodeLVal): BabelNodeRestProperty
   declare function returnStatement(
-    argument?: ?BabelNodeExpression
+    argument?: ?BabelNodeExpression,
   ): BabelNodeReturnStatement
   declare function sequenceExpression(
-    expressions: Array<BabelNodeExpression>
+    expressions: Array<BabelNodeExpression>,
   ): BabelNodeSequenceExpression
   declare function spreadElement(
-    argument: BabelNodeExpression
+    argument: BabelNodeExpression,
   ): BabelNodeSpreadElement
   declare function spreadProperty(
-    argument: BabelNodeExpression
+    argument: BabelNodeExpression,
   ): BabelNodeSpreadProperty
   declare function stringLiteral(value: string): BabelNodeStringLiteral
   declare function stringLiteralTypeAnnotation(): BabelNodeStringLiteralTypeAnnotation
   declare function stringTypeAnnotation(): BabelNodeStringTypeAnnotation
   declare function switchCase(
     test?: ?BabelNodeExpression,
-    consequent: Array<BabelNodeStatement>
+    consequent: Array<BabelNodeStatement>,
   ): BabelNodeSwitchCase
   declare function switchStatement(
     discriminant: BabelNodeExpression,
-    cases: Array<BabelNodeSwitchCase>
+    cases: Array<BabelNodeSwitchCase>,
   ): BabelNodeSwitchStatement
   declare function taggedTemplateExpression(
     tag: BabelNodeExpression,
-    quasi: BabelNodeTemplateLiteral
+    quasi: BabelNodeTemplateLiteral,
   ): BabelNodeTaggedTemplateExpression
   declare function templateElement(
     value: any,
-    tail?: boolean
+    tail?: boolean,
   ): BabelNodeTemplateElement
   declare function templateLiteral(
     quasis: Array<BabelNodeTemplateLiteral>,
-    expressions: Array<BabelNodeExpression>
+    expressions: Array<BabelNodeExpression>,
   ): BabelNodeTemplateLiteral
   declare function thisExpression(): BabelNodeThisExpression
   declare function thisTypeAnnotation(): BabelNodeThisTypeAnnotation
   declare function throwStatement(
-    argument: BabelNodeExpression
+    argument: BabelNodeExpression,
   ): BabelNodeThrowStatement
   declare function tryStatement(
     block: any,
     handler?: any,
     finalizer?: ?BabelNodeBlockStatement,
-    body?: ?BabelNodeBlockStatement
+    body?: ?BabelNodeBlockStatement,
   ): BabelNodeTryStatement
   declare function tupleTypeAnnotation(types: any): BabelNodeTupleTypeAnnotation
   declare function typeAlias(
     id: any,
     typeParameters: any,
-    right: any
+    right: any,
   ): BabelNodeTypeAlias
   declare function typeAnnotation(typeAnnotation: any): BabelNodeTypeAnnotation
   declare function typeCastExpression(
     expression: any,
-    typeAnnotation: any
+    typeAnnotation: any,
   ): BabelNodeTypeCastExpression
   declare function typeParameter(bound: any): BabelNodeTypeParameter
   declare function typeParameterDeclaration(
-    params: any
+    params: any,
   ): BabelNodeTypeParameterDeclaration
   declare function typeParameterInstantiation(
-    params: any
+    params: any,
   ): BabelNodeTypeParameterInstantiation
   declare function typeofTypeAnnotation(
-    argument: any
+    argument: any,
   ): BabelNodeTypeofTypeAnnotation
   declare function unaryExpression(
     operator: BabelUnaryOperator,
     argument: BabelNodeExpression,
-    prefix?: boolean
+    prefix?: boolean,
   ): BabelNodeUnaryExpression
   declare function unionTypeAnnotation(types: any): BabelNodeUnionTypeAnnotation
   declare function updateExpression(
     operator: BabelUpdateOperator,
     argument: BabelNodeExpression,
-    prefix?: boolean
+    prefix?: boolean,
   ): BabelNodeUpdateExpression
   declare function variableDeclaration(
     kind: BabelVariableKind,
-    declarations: Array<BabelNodeVariableDeclarator>
+    declarations: Array<BabelNodeVariableDeclarator>,
   ): BabelNodeVariableDeclaration
   declare function variableDeclarator(
     id: BabelNodeLVal,
-    init?: ?BabelNodeExpression
+    init?: ?BabelNodeExpression,
   ): BabelNodeVariableDeclarator
   declare function voidTypeAnnotation(): BabelNodeVoidTypeAnnotation
   declare function whileStatement(
     test: BabelNodeExpression,
-    body: BabelNodeStatement
+    body: BabelNodeStatement,
   ): BabelNodeWhileStatement
   declare function withStatement(
     object: BabelNodeExpression,
-    body: BabelNodeStatement
+    body: BabelNodeStatement,
   ): BabelNodeWithStatement
   declare function yieldExpression(
     argument?: ?BabelNodeExpression,
-    delegate?: boolean
+    delegate?: boolean,
   ): BabelNodeYieldExpression
 
   declare function isArrayExpression(node: Object, opts?: Object): boolean
@@ -1983,7 +1983,7 @@ declare module 'babel-types' {
   declare function isArrayPattern(node: Object, opts?: Object): boolean
   declare function isArrowFunctionExpression(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isClassBody(node: Object, opts?: Object): boolean
   declare function isClassDeclaration(node: Object, opts?: Object): boolean
@@ -1991,22 +1991,22 @@ declare module 'babel-types' {
   declare function isExportAllDeclaration(node: Object, opts?: Object): boolean
   declare function isExportDefaultDeclaration(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isExportNamedDeclaration(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isExportSpecifier(node: Object, opts?: Object): boolean
   declare function isForOfStatement(node: Object, opts?: Object): boolean
   declare function isImportDeclaration(node: Object, opts?: Object): boolean
   declare function isImportDefaultSpecifier(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isImportNamespaceSpecifier(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isImportSpecifier(node: Object, opts?: Object): boolean
   declare function isMetaProperty(node: Object, opts?: Object): boolean
@@ -2016,7 +2016,7 @@ declare module 'babel-types' {
   declare function isSuper(node: Object, opts?: Object): boolean
   declare function isTaggedTemplateExpression(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isTemplateElement(node: Object, opts?: Object): boolean
   declare function isTemplateLiteral(node: Object, opts?: Object): boolean
@@ -2026,11 +2026,11 @@ declare module 'babel-types' {
   declare function isBooleanTypeAnnotation(node: Object, opts?: Object): boolean
   declare function isBooleanLiteralTypeAnnotation(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isNullLiteralTypeAnnotation(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isClassImplements(node: Object, opts?: Object): boolean
   declare function isClassProperty(node: Object, opts?: Object): boolean
@@ -2044,7 +2044,7 @@ declare module 'babel-types' {
   declare function isExistentialTypeParam(node: Object, opts?: Object): boolean
   declare function isFunctionTypeAnnotation(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isFunctionTypeParam(node: Object, opts?: Object): boolean
   declare function isGenericTypeAnnotation(node: Object, opts?: Object): boolean
@@ -2052,22 +2052,22 @@ declare module 'babel-types' {
   declare function isInterfaceDeclaration(node: Object, opts?: Object): boolean
   declare function isIntersectionTypeAnnotation(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isMixedTypeAnnotation(node: Object, opts?: Object): boolean
   declare function isEmptyTypeAnnotation(node: Object, opts?: Object): boolean
   declare function isNullableTypeAnnotation(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isNumericLiteralTypeAnnotation(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isNumberTypeAnnotation(node: Object, opts?: Object): boolean
   declare function isStringLiteralTypeAnnotation(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isStringTypeAnnotation(node: Object, opts?: Object): boolean
   declare function isThisTypeAnnotation(node: Object, opts?: Object): boolean
@@ -2079,22 +2079,22 @@ declare module 'babel-types' {
   declare function isTypeParameter(node: Object, opts?: Object): boolean
   declare function isTypeParameterDeclaration(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isTypeParameterInstantiation(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isObjectTypeAnnotation(node: Object, opts?: Object): boolean
   declare function isObjectTypeCallProperty(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isObjectTypeIndexer(node: Object, opts?: Object): boolean
   declare function isObjectTypeProperty(node: Object, opts?: Object): boolean
   declare function isQualifiedTypeIdentifier(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isUnionTypeAnnotation(node: Object, opts?: Object): boolean
   declare function isVoidTypeAnnotation(node: Object, opts?: Object): boolean
@@ -2104,7 +2104,7 @@ declare module 'babel-types' {
   declare function isJSXEmptyExpression(node: Object, opts?: Object): boolean
   declare function isJSXExpressionContainer(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isJSXIdentifier(node: Object, opts?: Object): boolean
   declare function isJSXMemberExpression(node: Object, opts?: Object): boolean
@@ -2115,7 +2115,7 @@ declare module 'babel-types' {
   declare function isNoop(node: Object, opts?: Object): boolean
   declare function isParenthesizedExpression(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isAwaitExpression(node: Object, opts?: Object): boolean
   declare function isForAwaitStatement(node: Object, opts?: Object): boolean
@@ -2124,11 +2124,11 @@ declare module 'babel-types' {
   declare function isDoExpression(node: Object, opts?: Object): boolean
   declare function isExportDefaultSpecifier(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isExportNamespaceSpecifier(
     node: Object,
-    opts?: Object
+    opts?: Object,
   ): boolean
   declare function isRestProperty(node: Object, opts?: Object): boolean
   declare function isSpreadProperty(node: Object, opts?: Object): boolean
@@ -2174,11 +2174,11 @@ declare module 'babel-types' {
   declare function getBindingIdentifiers(
     node: Object | Array<Object>,
     duplicates?: boolean,
-    outerOnly?: boolean
+    outerOnly?: boolean,
   ): Object
   declare function getOuterBindingIdentifiers(
     node: Object | Array<Object>,
-    duplicates?: boolean
+    duplicates?: boolean,
   ): Object
   declare var VISITOR_KEYS: { [id: string]: Function }
   declare function valueToNode(value: any): BabelNodeExpression

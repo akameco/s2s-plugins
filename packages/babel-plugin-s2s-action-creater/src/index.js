@@ -17,7 +17,7 @@ const wrapTemp = (tmpl: string) => template(tmpl, babylonOpts)
 const builders = {
   actionCreater: wrapTemp(`export function NAME(PARAMS): TYPE {
     return VALUE;
-  }`)
+  }`),
 }
 
 function createActionCreater(name, props, params) {
@@ -27,9 +27,9 @@ function createActionCreater(name, props, params) {
     TYPE: t.identifier(name),
     VALUE: t.objectExpression([
       t.objectProperty(typeIdentifier, t.identifier(constantCase(name))),
-      ...props
+      ...props,
     ]),
-    PARAMS: params
+    PARAMS: params,
   })
 }
 
@@ -82,7 +82,7 @@ export default () => {
               }
 
               funcs.push(createActionCreater(name, props, params))
-            }
+            },
           })
 
           function createImport(arr: string[]) {
@@ -93,7 +93,7 @@ export default () => {
             }
             return t.importDeclaration(
               specifiers,
-              t.stringLiteral(`./${basename}`)
+              t.stringLiteral(`./${basename}`),
             )
           }
 
@@ -108,12 +108,12 @@ export default () => {
             constImport,
             typeImport,
             t.noop(),
-            ...funcs
+            ...funcs,
           ]
 
           addFlowComment(programPath)
-        }
-      }
-    }
+        },
+      },
+    },
   }
 }

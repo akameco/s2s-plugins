@@ -40,15 +40,15 @@ export default () => {
             if (
               looksLike(callPath, {
                 node: {
-                  callee: { type: 'Identifier', name: 'test' }
-                }
+                  callee: { type: 'Identifier', name: 'test' },
+                },
               })
             ) {
               const testTitlePath = callPath.get('arguments')[0]
               const value /* : string */ = testTitlePath.get('value').node
               existTestCases.push(value.replace('handle ', ''))
             }
-          }
+          },
         })
 
         const code = fs.readFileSync(from, 'utf8')
@@ -60,15 +60,15 @@ export default () => {
             testBuilder({
               TEST_TITLE: t.stringLiteral(`handle ${actionType}`),
               ACTION: t.identifier(camelCase(actionType)),
-              STATE: state
-            })
+              STATE: state,
+            }),
           ])
         }
 
         const actions = getReducerCase(code)
 
         actions.filter(v => !existTestCases.includes(v)).forEach(add)
-      }
-    }
+      },
+    },
   }
 }

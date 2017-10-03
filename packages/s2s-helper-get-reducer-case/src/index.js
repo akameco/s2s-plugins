@@ -10,7 +10,7 @@ type Code = string
 export default function getReducerCase(code /* : Code */) {
   const ast = parse(code, {
     sourceType: 'module',
-    plugins: ['flow', 'objectRestSpread']
+    plugins: ['flow', 'objectRestSpread'],
   })
   const actions = []
 
@@ -28,7 +28,7 @@ export default function getReducerCase(code /* : Code */) {
       }
 
       actions.push(testPath.get('property').node.name)
-    }
+    },
   })
 
   return actions

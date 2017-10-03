@@ -13,7 +13,7 @@ const wrapTemp = (tmpl: string) =>
 
 const builders = {
   redux: wrapTemp(`import { combineReducers } from 'redux'`),
-  root: wrapTemp(`export default combineReducers(OBJ)`)
+  root: wrapTemp(`export default combineReducers(OBJ)`),
 }
 
 const trimExtension = (path: string, ext: string = '.js') =>
@@ -39,7 +39,7 @@ function inheritsOpts() {
     manipulateOptions(opts: Object, parserOpts: Object) {
       parserOpts.plugins.push('flow')
       parserOpts.plugins.push('objectRestSpread')
-    }
+    },
   }
 }
 
@@ -54,7 +54,7 @@ export default () => {
         const { input, output } = state.opts
         const globOptions = Object.assign(
           { absolute: true },
-          state.opts.globOptions
+          state.opts.globOptions,
         )
 
         if (!input) {
@@ -70,12 +70,12 @@ export default () => {
         const imports = files
           .map(f => ({
             source: getImportPath(output, f),
-            name: getParentDirName(f)
+            name: getParentDirName(f),
           }))
           .map(({ name, source }) => {
             return t.importDeclaration(
               [t.importDefaultSpecifier(t.identifier(name))],
-              t.stringLiteral(source)
+              t.stringLiteral(source),
             )
           })
 
@@ -88,11 +88,11 @@ export default () => {
           builders.redux({}),
           ...imports,
           t.noop(),
-          builders.root({ OBJ: t.objectExpression(props) })
+          builders.root({ OBJ: t.objectExpression(props) }),
         ]
 
         addFlowComment(programPath)
-      }
-    }
+      },
+    },
   }
 }

@@ -26,7 +26,7 @@ export type Increment = {
 };
 
 export type Action = Increment;
-      `
+      `,
     },
     {
       title: 'some function',
@@ -48,7 +48,7 @@ export type Decrement = {
 }
 
 export type Action = Increment | Decrement
-      `
+      `,
     },
     {
       title: 'has prop',
@@ -66,7 +66,7 @@ export type Add = {
 }
 
 export type Action = Add
-    `
+    `,
     },
     {
       title: 'another import',
@@ -87,7 +87,7 @@ export type Add = {
 }
 
 export type Action = Add
-    `
-    }
-  ]
+    `,
+    },
+  ],
 })

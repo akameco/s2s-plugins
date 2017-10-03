@@ -2932,9 +2932,9 @@ lcov-parse@^0.0.10:
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/lcov-parse/-/lcov-parse-0.0.10.tgz#1b0b8ff9ac9c7889250582b70b71315d9da6d9a3"
 
-lerna@^2.1.2:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/lerna/-/lerna-2.2.0.tgz#dcf588f8c8feb57d76b34ef72cfedef23f1b5807"
+lerna@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/lerna/-/lerna-2.3.1.tgz#16397bc8ad8703381c8435e42ae0cd02086e8ee3"
   dependencies:
     async "^1.5.0"
     chalk "^2.1.0"
@@ -3642,9 +3642,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@^1.7.3:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.7.3.tgz#8e6974725273914b1c47439959dd3d3ba53664b6"
+prettier@^1.7.4:
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.7.4.tgz#5e8624ae9363c80f95ec644584ecdf55d74f93fa"
 
 pretty-format-ast@^1.0.1:
   version "1.0.1"

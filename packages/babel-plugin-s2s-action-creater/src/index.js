@@ -1,21 +1,17 @@
 // @flow
 import flowSyntax from 'babel-plugin-syntax-flow'
 import * as t from 'babel-types'
-import template from 'babel-template'
 import snakeCase from 'lodash.snakecase'
 import camelCase from 'lodash.camelcase'
 import { removeFlowComment, addFlowComment } from 'babel-add-flow-comments'
-// import blog from 'babel-log'
+import { template } from 's2s-utils'
 import type { Path, State } from 's2s-babel-flow-types'
+// import blog from 'babel-log'
 
 const constantCase = (str: string) => snakeCase(str).toUpperCase()
 
-const babylonOpts = { sourceType: 'module', plugins: ['flow'] }
-
-const wrapTemp = (tmpl: string) => template(tmpl, babylonOpts)
-
 const builders = {
-  actionCreater: wrapTemp(`export function NAME(PARAMS): TYPE {
+  actionCreater: template(`export function NAME(PARAMS): TYPE {
     return VALUE;
   }`),
 }

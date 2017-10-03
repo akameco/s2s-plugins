@@ -23,10 +23,10 @@
     "babel-looks-like": "^0.1.0",
     "babel-plugin-syntax-flow": "^6.18.0",
     "babel-polyfill": "^6.26.0",
-    "babel-template": "^6.26.0",
     "babel-types": "^6.26.0",
     "camelcase": "^4.1.0",
     "s2s-babel-flow-types": "^0.1.0",
+    "s2s-utils": "^0.0.0",
     "s2s-helper-get-initial-state": "^0.1.0",
     "s2s-helper-get-reducer-case": "^0.1.1"
   }

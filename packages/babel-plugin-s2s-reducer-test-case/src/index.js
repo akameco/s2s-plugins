@@ -3,22 +3,18 @@ import 'babel-polyfill'
 import fs from 'fs'
 import * as t from 'babel-types'
 import flowSyntax from 'babel-plugin-syntax-flow'
-import template from 'babel-template'
 import camelCase from 'camelcase'
 import looksLike from 'babel-looks-like'
 import getReducerCase from 's2s-helper-get-reducer-case'
 import getInitialStae from 's2s-helper-get-initial-state'
+import { template } from 's2s-utils'
 // import blog from 'babel-log'
 
 /* ::
 import type {Path, State} from 's2s-babel-flow-types'
 */
 
-const babylonOpts = { sourceType: 'module', plugins: ['flow'] }
-
-const wrapTemp = (tmpl /* : string */) => template(tmpl, babylonOpts)
-
-const testBuilder = wrapTemp(`
+const testBuilder = template(`
 test(TEST_TITLE, () => {
   expect(reducer(initialState, actions.ACTION())).toEqual(STATE)
 })

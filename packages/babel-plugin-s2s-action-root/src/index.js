@@ -7,25 +7,7 @@ import { removeFlowComment, addFlowComment } from 'babel-add-flow-comments'
 import globby from 'globby'
 import slash from 'slash'
 import upperCamelCase from 'uppercamelcase'
-
-type Node = {
-  type: string,
-  [key: string]: any
-}
-
-type Path = {
-  type: string,
-  node: Node,
-  [key: string]: any,
-  get(key: string): Node
-}
-
-type File = Object
-
-type State = {
-  opts: Object,
-  file: File
-}
+import type { Path, State } from 's2s-babel-flow-types'
 
 const babylonOpts = { sourceType: 'module', plugins: ['flow'] }
 

@@ -6,25 +6,7 @@ import snakeCase from 'lodash.snakecase'
 import camelCase from 'lodash.camelcase'
 import { removeFlowComment, addFlowComment } from 'babel-add-flow-comments'
 // import blog from 'babel-log'
-
-type Node = {
-  type: string,
-  [key: string]: any
-}
-
-type Path = {
-  type: string,
-  node: Node,
-  [key: string]: any,
-  get(key: string): Node
-}
-
-type File = Object
-
-type State = {
-  opts: Object,
-  file: File
-}
+import type { Path, State } from 's2s-babel-flow-types'
 
 const constantCase = (str: string) => snakeCase(str).toUpperCase()
 

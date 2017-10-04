@@ -8,7 +8,7 @@ export type Node = {
 export type Path = {
   type: string,
   node: Node,
-  [key: string]: any,
+  [key: string | number]: any,
   get(key: string): Node
 }
 

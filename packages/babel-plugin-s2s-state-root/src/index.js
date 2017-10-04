@@ -1,18 +1,14 @@
 // @flow
 import { normalize, dirname } from 'path'
 import * as t from 'babel-types'
-import template from 'babel-template'
 import { removeFlowComment, addFlowComment } from 'babel-add-flow-comments'
 import globby from 'globby'
 import upperCamelCase from 'uppercamelcase'
 import type { Path, State } from 's2s-babel-flow-types'
-import { getImportPath } from 's2s-utils'
-
-const wrapTemp = (tmpl: string) =>
-  template(tmpl, { sourceType: 'module', plugins: ['flow'] })
+import { getImportPath, template } from 's2s-utils'
 
 const createObjectType = input =>
-  wrapTemp(`export type State = STATE`)({
+  template(`export type State = STATE`)({
     STATE: t.objectTypeAnnotation(input, null, null),
   })
 

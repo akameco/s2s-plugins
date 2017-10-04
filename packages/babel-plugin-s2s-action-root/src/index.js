@@ -2,23 +2,18 @@
 import { normalize, dirname } from 'path'
 import flowSyntax from 'babel-plugin-syntax-flow'
 import * as t from 'babel-types'
-import template from 'babel-template'
 import { removeFlowComment, addFlowComment } from 'babel-add-flow-comments'
 import globby from 'globby'
 import upperCamelCase from 'uppercamelcase'
-import { getImportPath } from 's2s-utils'
+import { getImportPath, template } from 's2s-utils'
 import type { Path, State } from 's2s-babel-flow-types'
 
-const babylonOpts = { sourceType: 'module', plugins: ['flow'] }
-
-const wrapTemp = (tmpl: string) => template(tmpl, babylonOpts)
-
 const createUnion = union =>
-  wrapTemp(`export type Action = UNION`)({
+  template(`export type Action = UNION`)({
     UNION: t.unionTypeAnnotation(union),
   })
 
-const createInitAction = wrapTemp(
+const createInitAction = template(
   `export type ReduxInitAction = { type: '@@INIT' }`,
 )
 

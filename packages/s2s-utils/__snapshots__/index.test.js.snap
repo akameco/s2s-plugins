@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`template 1`] = `
+Node {
+  "__clone": undefined,
+  "_fromTemplate": true,
+  "end": undefined,
+  "id": Node {
+    "__clone": undefined,
+    "_fromTemplate": true,
+    "end": undefined,
+    "loc": undefined,
+    "name": "Action",
+    "start": undefined,
+    "type": "Identifier",
+  },
+  "loc": undefined,
+  "right": Node {
+    "__clone": undefined,
+    "_fromTemplate": true,
+    "end": undefined,
+    "id": Node {
+      "__clone": undefined,
+      "_fromTemplate": true,
+      "end": undefined,
+      "loc": undefined,
+      "name": "A",
+      "start": undefined,
+      "type": "Identifier",
+    },
+    "loc": undefined,
+    "start": undefined,
+    "type": "GenericTypeAnnotation",
+    "typeParameters": null,
+  },
+  "start": undefined,
+  "type": "TypeAlias",
+  "typeParameters": null,
+}
+`;

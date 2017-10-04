@@ -1,19 +1,15 @@
 // @flow
 import { normalize, dirname } from 'path'
 import * as t from 'babel-types'
-import template from 'babel-template'
 import { removeFlowComment, addFlowComment } from 'babel-add-flow-comments'
 import globby from 'globby'
 import upperCamelCase from 'uppercamelcase'
 import type { Path, State } from 's2s-babel-flow-types'
-import { getImportPath } from 's2s-utils'
-
-const wrapTemp = (tmpl: string) =>
-  template(tmpl, { sourceType: 'module', plugins: ['flow'] })
+import { getImportPath, template } from 's2s-utils'
 
 const builders = {
-  redux: wrapTemp(`import { combineReducers } from 'redux'`),
-  root: wrapTemp(`export default combineReducers(OBJ)`),
+  redux: template(`import { combineReducers } from 'redux'`),
+  root: template(`export default combineReducers(OBJ)`),
 }
 
 function getParentDirName(path: string) {

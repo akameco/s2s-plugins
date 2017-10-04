@@ -5,13 +5,10 @@
   "license": "MIT",
   "repository": "akameco/s2s-plugins",
   "author": "akameco <akameco.t@gmail.com>",
-  "main": "lib/index.js",
-  "files": ["lib"],
-  "scripts": {
-    "prepare": "npm run build",
-    "build": "babel src --ignore *.test.js -d lib "
-  },
+  "main": "index.js",
+  "files": ["index.js"],
   "dependencies": {
+    "babel-template": "^6.26.0",
     "slash": "^1.0.0"
   }
 }

@@ -1,5 +1,5 @@
 // @flow
-import { getImportPath } from '.'
+import { getImportPath, template } from '.'
 
 test('getImportPath same folder', () => {
   const result = getImportPath('path/to/index.js', 'path/to/test.js')
@@ -14,4 +14,9 @@ test('getImportPath same folder when not ext', () => {
 test('getImportPath parent folder', () => {
   const result = getImportPath('path/to/nest/index.js', 'path/to/test.js')
   expect(result).toBe('../test')
+})
+
+test('template', () => {
+  const ast = template(`type Action = A`)()
+  expect(ast).toMatchSnapshot()
 })

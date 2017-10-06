@@ -1,0 +1,18 @@
+{
+  "name": "s2s-helper-get-action-obj",
+  "version": "0.0.0",
+  "description": "Helper function to get action object",
+  "license": "MIT",
+  "repository": "akameco/s2s-plugins",
+  "author": "akameco <akameco.t@gmail.com>",
+  "main": "lib/index.js",
+  "files": ["lib"],
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "babel src --ignore *.test.js -d lib "
+  },
+  "dependencies": {
+    "babel-traverse": "^6.26.0",
+    "babylon": "^6.18.0"
+  }
+}

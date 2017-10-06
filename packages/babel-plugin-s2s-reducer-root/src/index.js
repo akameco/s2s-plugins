@@ -5,7 +5,7 @@ import { removeFlowComment, addFlowComment } from 'babel-add-flow-comments'
 import globby from 'globby'
 import upperCamelCase from 'uppercamelcase'
 import type { Path, State } from 's2s-babel-flow-types'
-import { getImportPath, template } from 's2s-utils'
+import { getImportPath, template, inheritsOpts } from 's2s-utils'
 
 const builders = {
   redux: template(`import { combineReducers } from 'redux'`),
@@ -15,16 +15,6 @@ const builders = {
 function getParentDirName(path: string) {
   const parentPath = normalize(dirname(path)).split('/')
   return upperCamelCase(parentPath[parentPath.length - 1])
-}
-
-// TODO ignore all syntax error
-function inheritsOpts() {
-  return {
-    manipulateOptions(opts: Object, parserOpts: Object) {
-      parserOpts.plugins.push('flow')
-      parserOpts.plugins.push('objectRestSpread')
-    },
-  }
 }
 
 export default () => {

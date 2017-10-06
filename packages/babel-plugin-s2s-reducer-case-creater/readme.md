@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ npm install --save-dev babel-plugin-s2s-reducer-caase-creater
+$ npm install --save-dev babel-plugin-s2s-reducer-case-creater
 ```
 
 ### Example

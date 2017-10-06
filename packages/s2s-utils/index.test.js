@@ -1,5 +1,5 @@
 // @flow
-import { getImportPath, template } from '.'
+import { getImportPath, template, inheritsOpts } from '.'
 
 test('getImportPath same folder', () => {
   const result = getImportPath('path/to/index.js', 'path/to/test.js')
@@ -19,4 +19,10 @@ test('getImportPath parent folder', () => {
 test('template', () => {
   const ast = template(`type Action = A`)()
   expect(ast).toMatchSnapshot()
+})
+
+test('inheritsOpts', () => {
+  const parserOpts = { plugins: [] }
+  inheritsOpts().manipulateOptions({}, parserOpts)
+  expect(parserOpts).toEqual({ plugins: ['flow', 'objectRestSpread'] })
 })

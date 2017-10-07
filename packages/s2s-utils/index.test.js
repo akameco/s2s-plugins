@@ -1,28 +1,32 @@
 // @flow
-import { getImportPath, template, inheritsOpts } from '.'
+import * as utils from '.'
 
 test('getImportPath same folder', () => {
-  const result = getImportPath('path/to/index.js', 'path/to/test.js')
+  const result = utils.getImportPath('path/to/index.js', 'path/to/test.js')
   expect(result).toBe('./test')
 })
 
 test('getImportPath same folder when not ext', () => {
-  const result = getImportPath('path/to/index', 'path/to/test')
+  const result = utils.getImportPath('path/to/index', 'path/to/test')
   expect(result).toBe('./test')
 })
 
 test('getImportPath parent folder', () => {
-  const result = getImportPath('path/to/nest/index.js', 'path/to/test.js')
+  const result = utils.getImportPath('path/to/nest/index.js', 'path/to/test.js')
   expect(result).toBe('../test')
 })
 
 test('template', () => {
-  const ast = template(`type Action = A`)()
+  const ast = utils.template(`type Action = A`)()
   expect(ast).toMatchSnapshot()
 })
 
 test('inheritsOpts', () => {
   const parserOpts = { plugins: [] }
-  inheritsOpts().manipulateOptions({}, parserOpts)
+  utils.inheritsOpts().manipulateOptions({}, parserOpts)
   expect(parserOpts).toEqual({ plugins: ['flow', 'objectRestSpread'] })
+})
+
+test('return parent path name', () => {
+  expect(utils.getParentDirName('ok/hello/world')).toBe('hello')
 })

@@ -1,11 +1,12 @@
 // @flow
-const { relative, dirname, extname } = require('path')
+const { relative, dirname, extname, normalize } = require('path')
 const slash = require('slash')
 const babelTemplate = require('babel-template')
 
 exports.getImportPath = getImportPath
 exports.template = template
 exports.inheritsOpts = inheritsOpts
+exports.getParentDirName = getParentDirName
 
 function trimExtension(path /* : string */, ext /* : string */ = '.js') {
   return extname(path) === ext ? path.replace(ext, '') : path
@@ -32,4 +33,9 @@ function inheritsOpts() {
       })
     },
   }
+}
+
+function getParentDirName(path /* : string */) {
+  const parentPath = normalize(dirname(path)).split('/')
+  return parentPath[parentPath.length - 1]
 }

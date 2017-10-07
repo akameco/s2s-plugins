@@ -1,21 +1,22 @@
 // @flow
-import { normalize, dirname } from 'path'
 import * as t from 'babel-types'
 import { removeFlowComment, addFlowComment } from 'babel-add-flow-comments'
 import globby from 'globby'
 import upperCamelCase from 'uppercamelcase'
 import type { Path, State } from 's2s-babel-flow-types'
-import { getImportPath, template, inheritsOpts } from 's2s-utils'
+import {
+  getImportPath,
+  template,
+  inheritsOpts,
+  getParentDirName,
+} from 's2s-utils'
 
 const createObjectType = input =>
   template(`export type State = STATE`)({
     STATE: t.objectTypeAnnotation(input, null, null),
   })
 
-function getParentDirName(path: string) {
-  const parentPath = normalize(dirname(path)).split('/')
-  return upperCamelCase(parentPath[parentPath.length - 1])
-}
+const getTypeName = (path: string) => upperCamelCase(getParentDirName(path))
 
 export default () => {
   return {
@@ -44,7 +45,7 @@ export default () => {
         const imports = files
           .map(f => ({
             source: getImportPath(output, f),
-            name: getParentDirName(f),
+            name: getTypeName(f),
           }))
           .map(({ name, source }) => {
             const im = t.importDeclaration(
@@ -57,7 +58,7 @@ export default () => {
           })
 
         const props = files
-          .map(getParentDirName)
+          .map(getTypeName)
           .map(x => t.identifier(x))
           .map(name =>
             t.objectTypeProperty(name, t.genericTypeAnnotation(name)),

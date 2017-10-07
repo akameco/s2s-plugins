@@ -1,11 +1,10 @@
 // @flow
-import { normalize, dirname } from 'path'
 import flowSyntax from 'babel-plugin-syntax-flow'
 import * as t from 'babel-types'
 import { removeFlowComment, addFlowComment } from 'babel-add-flow-comments'
 import globby from 'globby'
 import upperCamelCase from 'uppercamelcase'
-import { getImportPath, template } from 's2s-utils'
+import { getImportPath, template, getParentDirName } from 's2s-utils'
 import type { Path, State } from 's2s-babel-flow-types'
 
 const createUnion = union =>
@@ -18,8 +17,7 @@ const createInitAction = template(
 )
 
 function createActionName(path: string) {
-  const parentPath = normalize(dirname(path)).split('/')
-  return upperCamelCase(parentPath[parentPath.length - 1]) + 'Action'
+  return upperCamelCase(getParentDirName(path)) + 'Action'
 }
 
 export default () => {

@@ -27,4 +27,6 @@ test('inheritsOpts', () => {
   expect(parserOpts).toEqual({ plugins: ['flow', 'objectRestSpread'] })
 })
 
-test('return parent path name', () => {})
+test('return parent path name', () => {
+  expect(utils.getParentDirName('ok/hello/world')).toBe('hello')
+})

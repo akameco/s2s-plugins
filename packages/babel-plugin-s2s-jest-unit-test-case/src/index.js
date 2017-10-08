@@ -4,6 +4,7 @@ import * as t from 'babel-types'
 import { parse } from 'babylon'
 import traverse from 'babel-traverse'
 import { inheritsOpts, template } from 's2s-utils'
+import flatten from 'lodash.flatten'
 // import blog from 'babel-log'
 
 /* ::
@@ -58,14 +59,15 @@ export default () => {
           },
         })
 
-        const asts = Array.from(names).map(name =>
+        const asts = Array.from(names).map(name => [
+          t.noop(),
           builder.test({
             TITLE: t.stringLiteral(name),
             FUNC: t.identifier(name),
           }),
-        )
+        ])
 
-        rootPath.pushContainer('body', asts)
+        rootPath.pushContainer('body', flatten(asts))
       },
     },
   }

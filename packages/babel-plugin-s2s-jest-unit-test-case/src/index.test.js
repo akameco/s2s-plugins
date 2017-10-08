@@ -22,6 +22,24 @@ pluginTester({
     })
     `,
     },
+    {
+      title: 'when sum is imported',
+      code: `
+    import { sum } from './export-sum'
+    `,
+    },
+    {
+      title: 'when sum is not imported',
+      code: `
+    import { add } from './export-sum'
+    `,
+    },
+    {
+      title: 'when other source is imported',
+      code: `
+    import { add } from './other-source'
+    `,
+    },
   ],
 })
 
@@ -45,9 +63,9 @@ pluginTester({
 })
 
 pluginTester({
-  title: 'no export',
+  title: 'when sum is not exported',
   plugin,
-  snapshot: false,
+  snapshot: true,
   babelOptions: { filename },
   pluginOptions: { from: getFixturesPath('no-export-sum.js') },
   tests: [`// empty`],

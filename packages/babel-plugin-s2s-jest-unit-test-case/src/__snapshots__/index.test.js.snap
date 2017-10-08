@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1. s2s-jest-unit-test-case 1`] = `
+"
+// empty
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// empty
+test(\\"sum\\", () => {
+  const result = sum();
+  expect(result).toBe(null);
+});
+"
+`;
+
+exports[`when exist test("sum") 1`] = `
+"
+test('sum', () => {
+  expect(sum(1, 1)).toBe(2)
+})
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+test('sum', () => {
+  expect(sum(1, 1)).toBe(2);
+});
+"
+`;

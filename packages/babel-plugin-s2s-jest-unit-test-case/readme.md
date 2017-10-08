@@ -29,6 +29,7 @@ export function sum(a, b) {
 
 ```js
 // this is test file
+import { sum } from './target'
 
 test("sum", () => {
   const result = sum();

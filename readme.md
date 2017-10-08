@@ -29,3 +29,5 @@ This project follows the [all-contributors](https://github.com/kentcdodds/all-co
 ## License
 
 MIT © [akameco](http://akameco.github.io)
+
+[![s2s](https://github.com/akameco/logos/blob/master/s2s/s2s-logo.png?raw=true)](https://github.com/akameco/s2s)

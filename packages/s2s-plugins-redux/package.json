@@ -1,6 +1,6 @@
 {
   "name": "s2s-plugins-redux",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "s2s plugins for redux",
   "license": "MIT",
   "repository": "akameco/s2s-plugins",

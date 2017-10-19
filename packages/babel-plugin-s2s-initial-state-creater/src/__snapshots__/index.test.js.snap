@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`initialStateがある場合 1`] = `
+"
+// @flow
+type Count = number
+type State = { count: Count, isLoading: boolean }
+
+// $FlowFixMe
+const initialState: State = {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+type Count = number;
+type State = { count: Count; isLoading: boolean; };
+
+// $FlowFixMe
+const initialState: State = { \\"count\\": 0, \\"isLoading\\": false };
+"
+`;
+
+exports[`initialStateがない場合 1`] = `
+"
+// @flow
+type Count = number
+type State = { count: Count, isLoading: boolean }
+
+const initState = {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+type Count = number;
+type State = { count: Count; isLoading: boolean; };
+
+const initState = {};
+"
+`;

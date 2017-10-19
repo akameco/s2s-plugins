@@ -81,7 +81,7 @@ export default () => {
             },
           })
 
-          function createImport(arr: string[]) {
+          function createImport(arr: $ReadOnlyArray<string>) {
             const specifiers = []
             for (const x of arr) {
               const i = t.identifier(x)

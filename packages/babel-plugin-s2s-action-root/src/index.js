@@ -17,7 +17,7 @@ const createInitAction = template(
 )
 
 function createActionName(path: string) {
-  return upperCamelCase(getParentDirName(path)) + 'Action'
+  return `${upperCamelCase(getParentDirName(path))}Action`
 }
 
 export default () => {
@@ -43,7 +43,7 @@ export default () => {
             throw new Error('require output option')
           }
 
-          const files: string[] = globby.sync(input, globOptions)
+          const files: $ReadOnlyArray<string> = globby.sync(input, globOptions)
 
           const imports = files
             .map(f => ({

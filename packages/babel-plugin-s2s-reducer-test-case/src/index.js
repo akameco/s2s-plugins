@@ -1,5 +1,5 @@
 // @flow
-import 'babel-polyfill'
+import 'babel-polyfill' // eslint-disable-line import/no-unassigned-import
 import fs from 'fs'
 import * as t from 'babel-types'
 import flowSyntax from 'babel-plugin-syntax-flow'

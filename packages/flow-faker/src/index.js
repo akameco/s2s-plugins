@@ -52,7 +52,7 @@ function typeToValue(typeInfo: string | null) {
 }
 
 export function createInitialStateFromTypeInfo(
-  info: Object | Array<*> | string | null,
+  info: Object | $ReadOnlyArray<*> | string | null,
 ) {
   if (!info || typeof info === 'string') {
     return typeToValue(info)
@@ -144,7 +144,7 @@ function isPathLike(obj) {
   return isNodeLike(obj) && {}.hasOwnProperty.call(obj, 'node')
 }
 
-export function astToObj(input: any) {
+export function astToObj(input: *) {
   if (isPathLike(input)) {
     input = input.node
   }

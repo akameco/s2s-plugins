@@ -23,7 +23,7 @@ const builders = {
 
 function getPrefix({ opts: { filename } }: File, removePrefix: string = '') {
   const file = relative(join(process.cwd(), removePrefix), filename)
-  return dirname(file) + '/'
+  return `${dirname(file)}/`
 }
 
 export default () => {
@@ -57,8 +57,8 @@ export default () => {
               if (path.get('id').node.name === 'Action') {
                 const right = path.get('right')
                 if (right.isUnionTypeAnnotation()) {
-                  for (const t of right.get('types')) {
-                    addTypes(t)
+                  for (const typePath of right.get('types')) {
+                    addTypes(typePath)
                   }
                 } else if (right.isGenericTypeAnnotation()) {
                   addTypes(right)

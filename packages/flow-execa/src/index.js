@@ -17,12 +17,15 @@ export function getFlowBin(cwd: string) {
   return path.resolve(cwd, FLOW_BIN_PATH)
 }
 
-async function execFlow(cwd: string, params: any[]): Promise<Object> {
+async function execFlow(
+  cwd: string,
+  params: $ReadOnlyArray<string>,
+): Promise<Object> {
   const output = await execa.stdout(getFlowBin(cwd), params).catch(nullFn)
   return JSON.parse(output)
 }
 
-function execFlowSync(cwd: string, params: any[]): Object {
+function execFlowSync(cwd: string, params: $ReadOnlyArray<string>): Object {
   try {
     const output = execa.sync(getFlowBin(cwd), params).stdout
     return JSON.parse(output)
@@ -48,8 +51,8 @@ export async function typeAtPos(
     'type-at-pos',
     '--json',
     filePath,
-    row,
-    column,
+    String(row),
+    String(column),
   ])
   return json
 }
@@ -64,8 +67,8 @@ export function typeAtPosSync(
     'type-at-pos',
     '--json',
     filePath,
-    row,
-    column,
+    String(row),
+    String(column),
   ])
   return json
 }

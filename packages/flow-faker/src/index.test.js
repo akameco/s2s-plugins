@@ -30,7 +30,7 @@ test('ファイルとポジションを受け取り、その型を初期化し�
   })
 })
 
-test('sync: ファイルとポジションを受け取り、その型を初期化したオブジェクトを返す', async () => {
+test('sync: ファイルとポジションを受け取り、その型を初期化したオブジェクトを返す', () => {
   const filePath = getFixturePath('basic.js')
   const result = flowFakerSync(filePath, pos)
   expect(result).toEqual({
@@ -41,7 +41,7 @@ test('sync: ファイルとポジションを受け取り、その型を初期�
   })
 })
 
-function astTest(title: string, input: string, expected: any) {
+function astTest(title: string, input: string, expected: *) {
   test(title, () => {
     const ast = getTypeAst(input)
     const output = astToObj(ast)

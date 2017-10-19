@@ -29,7 +29,7 @@ test('getVersionInfoはflowのバージョン情報のオブジェクトを返�
 })
 
 test('getVersionInfoはpathが見つからない場合にnullを返す', async () => {
-  const cwd = 'not-found'
+  cwd = 'not-found'
   const info = await versionInfo(cwd)
   expect(info).toBe(null)
 })

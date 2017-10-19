@@ -7,9 +7,12 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --ci --runInBand",
-    "test:ci": "npm run test:coverage && npm run add:coveralls",
+    "test:ci":
+      "npm run lint && npm run flow && npm run test:coverage && npm run add:coveralls",
     "add:coveralls": "cat ./coverage/lcov.info | coveralls",
     "fmt": "prettier --write '**/*.{js,json}'",
+    "flow": "flow",
+    "checks": "npm run flow && npm run lint && npm run test",
     "lint": "eslint .",
     "prebuild": "rimraf ./packages/**/lib",
     "build": "lerna run build",
@@ -17,7 +20,7 @@
     "postinstall": "yarn fmt"
   },
   "lint-staged": {
-    "*.js": ["fmt", "lint", "test", "git add"],
+    "*.js": ["fmt", "checks", "git add"],
     "*.json": ["fmt", "git add"]
   },
   "devDependencies": {
@@ -31,7 +34,7 @@
     "coveralls": "^3.0.0",
     "eslint": "^4.8.0",
     "eslint-config-precure": "^0.8.1",
-    "flow-bin": "^0.56.0",
+    "flow-bin": "^0.57.2",
     "husky": "^0.14.3",
     "jest": "^21.2.1",
     "jest-cli": "^21.2.1",

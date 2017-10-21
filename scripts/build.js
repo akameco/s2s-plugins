@@ -15,9 +15,11 @@ const LIB_DIR = 'lib'
 const IGNORE = ['**/*.test.js', '**/__fixtures__/**']
 const IGNORE_PATTERN = IGNORE.map(v => `!${v}`)
 
-const transformOptions = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, '..', '.babelrc'), 'utf8'),
-)
+function readBabelrc() {
+  return fs.readFileSync(path.resolve(__dirname, '..', '.babelrc'), 'utf8')
+}
+
+const transformOptions = JSON.parse(readBabelrc())
 transformOptions.babelrc = false
 
 function getPkgs() {

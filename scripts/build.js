@@ -11,7 +11,6 @@ const PACKAGES_DIR = path.resolve(__dirname, '..', PACKAGES)
 const SRC_DIR = 'src'
 const LIB_DIR = 'lib'
 
-// packages以下の全てのレポジトリを取得
 const IGNORE = ['**/*.test.js', '**/__fixtures__/**']
 const IGNORE_PATTERN = IGNORE.map(v => `!${v}`)
 

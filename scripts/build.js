@@ -15,12 +15,10 @@ const LIB_DIR = 'lib'
 const IGNORE = ['**/*.test.js', '**/__fixtures__/**']
 const IGNORE_PATTERN = IGNORE.map(v => `!${v}`)
 
-const transformOptions = {
-  ...JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, '..', '.babelrc'), 'utf8'),
-  ),
-  babelrc: false,
-}
+const transformOptions = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, '..', '.babelrc'), 'utf8'),
+)
+transformOptions.babelrc = false
 
 function getPkgs() {
   return fs
@@ -45,7 +43,7 @@ function buildFile(file /*: string */) {
   const destPath = getBuildPath(file)
   mkdirp.sync(path.dirname(destPath))
 
-  const opts = { ...transformOptions }
+  const opts = Object.assign({}, transformOptions)
   const { code } = babel.transformFileSync(file, opts)
   fs.writeFileSync(destPath, code)
 }

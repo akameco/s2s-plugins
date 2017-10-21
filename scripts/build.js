@@ -47,6 +47,11 @@ function buildFile(file /*: string */) {
   const opts = Object.assign({}, transformOptions)
   const { code } = babel.transformFileSync(file, opts)
   fs.writeFileSync(destPath, code)
+
+  // node v8以上でPublishするのでcp-fileなどは使わない
+  if (fs.copyFileSync) {
+    fs.copyFileSync(file, `${destPath}.flow`)
+  }
 }
 
 function buildPkg(p) {

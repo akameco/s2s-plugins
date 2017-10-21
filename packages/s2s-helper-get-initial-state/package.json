@@ -7,10 +7,6 @@
   "author": "akameco <akameco.t@gmail.com>",
   "main": "lib/index.js",
   "files": ["lib"],
-  "scripts": {
-    "prepare": "npm run build",
-    "build": "babel src --ignore *.test.js -d lib "
-  },
   "dependencies": {
     "babel-traverse": "^6.26.0",
     "babylon": "^6.18.0"

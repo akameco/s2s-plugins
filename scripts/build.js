@@ -3,8 +3,8 @@ const path = require('path')
 const fs = require('fs')
 const babel = require('babel-core')
 const globby = require('globby')
-const rimfaf = require('rimraf')
 const mkdirp = require('mkdirp')
+const clean = require('./clean')
 
 const PACKAGES = 'packages'
 const PACKAGES_DIR = path.resolve(__dirname, '..', PACKAGES)
@@ -29,11 +29,11 @@ function getPkgs() {
     .filter(f => fs.lstatSync(path.resolve(f)).isDirectory())
 }
 
-function getPkgName(file) {
+function getPkgName(file /*: string */) {
   return path.relative(PACKAGES_DIR, file).split(path.sep)[0]
 }
 
-function getBuildPath(file, buildFolder = LIB_DIR) {
+function getBuildPath(file /*: string */, buildFolder = LIB_DIR) {
   const pkgName = getPkgName(file)
   const pkgSrcPath = path.resolve(PACKAGES_DIR, pkgName, SRC_DIR)
   const pkgLibPath = path.resolve(PACKAGES_DIR, pkgName, buildFolder)
@@ -41,7 +41,7 @@ function getBuildPath(file, buildFolder = LIB_DIR) {
   return path.resolve(pkgLibPath, relativeToSrcPath)
 }
 
-function buildFile(file) {
+function buildFile(file /*: string */) {
   const destPath = getBuildPath(file)
   mkdirp.sync(path.dirname(destPath))
 
@@ -55,10 +55,6 @@ function buildPkg(p) {
   const pattern = path.resolve(srcDir, '**/*.js')
   const files = globby.sync([pattern, ...IGNORE_PATTERN], { nodir: true })
   files.forEach(file => buildFile(file))
-}
-
-function clean() {
-  rimfaf.sync(`${PACKAGES}/**/${LIB_DIR}`)
 }
 
 function build() {

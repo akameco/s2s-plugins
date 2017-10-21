@@ -6,7 +6,7 @@
   "repository": "akameco/s2s-plugins",
   "author": "akameco <akameco.t@gmail.com>",
   "main": "lib/index.js",
-  "files": ["lib", "src"],
+  "files": ["lib"],
   "dependencies": {
     "babel-traverse": "^6.26.0",
     "babylon": "^6.18.0",

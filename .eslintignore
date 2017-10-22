@@ -1,6 +1,6 @@
-node_moduels/*
+**/node_modules/**
 **/lib/*
-flow-typed/*
-flow-typed/npm/*
 **/__fixtures__/**/*.js
-coverage
+**/coverage/**
+**/flow-typed/**
+**/examples/**

@@ -3,7 +3,10 @@ import path from 'path'
 import pluginTester from 'babel-plugin-tester'
 import plugin from '.'
 
-const testWithFixture = (title, fixture) => {
+const getFixturePath = (...x) =>
+  path.resolve(__dirname, '..', '__fixtures__', ...x)
+
+function testWithFixture(title, fixture) {
   pluginTester({
     plugin,
     snapshot: true,
@@ -17,8 +20,23 @@ const testWithFixture = (title, fixture) => {
   })
 }
 
-const getFixturePath = (...x) =>
-  path.resolve(__dirname, '..', '__fixtures__', ...x)
+function pluginTest(tests: $ReadOnlyArray<{ title: string, file: string }>) {
+  for (const { title, file } of tests) {
+    testWithFixture(title, getFixturePath(file))
+  }
+}
 
-testWithFixture('initialStateがある場合', getFixturePath('reducer.js'))
-testWithFixture('initialStateがない場合', getFixturePath('reducer-no-state.js'))
+pluginTest([
+  {
+    title: 'initialize object when empty object',
+    file: 'reducer-empty.js',
+  },
+  {
+    title: 'overwirte property when property is not type match',
+    file: 'reducer.js',
+  },
+  {
+    title: 'initialState not found',
+    file: 'reducer-no-state.js',
+  },
+])

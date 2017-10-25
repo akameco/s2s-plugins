@@ -3,4 +3,4 @@ type Count = number
 type State = { count: Count, isLoading: boolean }
 
 // $FlowFixMe
-const initialState: State = { count: 100 }
+const initialState: State = {}

@@ -2,5 +2,6 @@
   "extends": ["precure/oss", "precure/flowtype"],
   "rules": {
     "import/no-extraneous-dependencies": 0,
+    "no-duplicate-imports": 0
   }
 }

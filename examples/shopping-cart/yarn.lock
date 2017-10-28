@@ -617,16 +617,17 @@ babel-plugin-s2s-action-types@^0.4.3:
     s2s-babel-flow-types "^0.2.0"
     s2s-utils "^0.3.1"
 
-babel-plugin-s2s-initial-state-creater@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-s2s-initial-state-creater/-/babel-plugin-s2s-initial-state-creater-0.1.1.tgz#adcd5b39ae0ec9ffe994e6f4cb1f072f14a8a1d5"
+babel-plugin-s2s-initial-state-creater@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-s2s-initial-state-creater/-/babel-plugin-s2s-initial-state-creater-0.2.0.tgz#5ed7f13b17c0551d28c2e65f919ceff62a9bbebe"
   dependencies:
-    babel-plugin-syntax-flow "^6.18.0"
-    babel-types "^6.26.0"
+    babel-generator "^6.26.0"
     babylon "^6.18.0"
     flow-faker "^0.1.1"
+    json5 "^0.5.1"
     s2s-babel-flow-types "^0.2.0"
     s2s-utils "^0.3.1"
+    typed-assign "^0.1.1"
 
 babel-plugin-s2s-reducer-case-creater@^0.1.2:
   version "0.1.2"
@@ -5967,12 +5968,12 @@ s2s-helper-get-reducer-case@^0.2.1:
     babylon "^6.18.0"
 
 "s2s-plugins-redux@file:../../packages/s2s-plugins-redux":
-  version "0.2.1"
+  version "0.3.0"
   dependencies:
     babel-plugin-s2s-action-creater "^0.2.3"
     babel-plugin-s2s-action-root "^0.3.3"
     babel-plugin-s2s-action-types "^0.4.3"
-    babel-plugin-s2s-initial-state-creater "^0.1.1"
+    babel-plugin-s2s-initial-state-creater "^0.2.0"
     babel-plugin-s2s-reducer-case-creater "^0.1.2"
     babel-plugin-s2s-reducer-root "^0.2.3"
     babel-plugin-s2s-reducer-test-case "^0.4.3"
@@ -6597,6 +6598,10 @@ type-is@~1.6.15:
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.15"
+
+typed-assign@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/typed-assign/-/typed-assign-0.1.1.tgz#d8fcd427423e2c65fc8db77055a3a503acae429e"
 
 typedarray@^0.0.6:
   version "0.0.6"

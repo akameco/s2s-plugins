@@ -10,10 +10,14 @@ import { getAllProducts } from './containers/CartContainer/logic'
 const store = configureStore()
 store.dispatch(getAllProducts())
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root'),
-)
-registerServiceWorker()
+const rootEl = document.getElementById('root')
+
+if (rootEl) {
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    rootEl,
+  )
+  registerServiceWorker()
+}

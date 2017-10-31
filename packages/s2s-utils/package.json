@@ -8,6 +8,7 @@
   "main": "index.js",
   "files": ["index.js"],
   "dependencies": {
+    "babel-types": "^6.26.0",
     "babel-template": "^6.26.0",
     "slash": "^1.0.0"
   }

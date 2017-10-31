@@ -9,6 +9,7 @@ import {
   template,
   inheritsOpts,
   getParentDirName,
+  defaultImport,
 } from 's2s-utils'
 
 const builders = {
@@ -42,17 +43,9 @@ export default () => {
 
         const files = globby.sync(input, globOptions)
 
-        const imports = files
-          .map(f => ({
-            source: getImportPath(output, f),
-            name: getTypeName(f),
-          }))
-          .map(({ name, source }) => {
-            return t.importDeclaration(
-              [t.importDefaultSpecifier(t.identifier(name))],
-              t.stringLiteral(source),
-            )
-          })
+        const imports = files.map(f =>
+          defaultImport(getTypeName(f), getImportPath(output, f)),
+        )
 
         const props = files
           .map(getTypeName)

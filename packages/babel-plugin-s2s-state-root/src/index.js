@@ -9,6 +9,7 @@ import {
   template,
   inheritsOpts,
   getParentDirName,
+  typeImport,
 } from 's2s-utils'
 
 const createObjectType = input =>
@@ -42,20 +43,9 @@ export default () => {
 
         const files = globby.sync(input, globOptions)
 
-        const imports = files
-          .map(f => ({
-            source: getImportPath(output, f),
-            name: getTypeName(f),
-          }))
-          .map(({ name, source }) => {
-            const im = t.importDeclaration(
-              [t.importSpecifier(t.identifier(name), t.identifier('State'))],
-              t.stringLiteral(source),
-            )
-            // $FlowFixMe
-            im.importKind = 'type'
-            return im
-          })
+        const imports = files.map(f =>
+          typeImport(getTypeName(f), 'State', getImportPath(output, f)),
+        )
 
         const props = files
           .map(getTypeName)

@@ -4,7 +4,12 @@ import * as t from 'babel-types'
 import { removeFlowComment, addFlowComment } from 'babel-add-flow-comments'
 import globby from 'globby'
 import upperCamelCase from 'uppercamelcase'
-import { getImportPath, template, getParentDirName } from 's2s-utils'
+import {
+  getImportPath,
+  template,
+  getParentDirName,
+  typeImport,
+} from 's2s-utils'
 import type { Path, State } from 's2s-babel-flow-types'
 
 const createUnion = union =>
@@ -45,20 +50,9 @@ export default () => {
 
           const files: $ReadOnlyArray<string> = globby.sync(input, globOptions)
 
-          const imports = files
-            .map(f => ({
-              source: getImportPath(output, f),
-              name: createActionName(f),
-            }))
-            .map(({ name, source }) => {
-              const im = t.importDeclaration(
-                [t.importSpecifier(t.identifier(name), t.identifier('Action'))],
-                t.stringLiteral(source),
-              )
-              // $FlowFixMe
-              im.importKind = 'type'
-              return im
-            })
+          const imports = files.map(f =>
+            typeImport(createActionName(f), 'Action', getImportPath(output, f)),
+          )
 
           const union = files
             .map(createActionName)

@@ -30,3 +30,11 @@ test('inheritsOpts', () => {
 test('return parent path name', () => {
   expect(utils.getParentDirName('ok/hello/world')).toBe('hello')
 })
+
+test('snapshot defaultImport', () => {
+  expect(utils.defaultImport('local', 'source')).toMatchSnapshot()
+})
+
+test('snapshot typeImport', () => {
+  expect(utils.typeImport('local', 'imported', 'source')).toMatchSnapshot()
+})

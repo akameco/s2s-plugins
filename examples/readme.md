@@ -9,7 +9,7 @@ yarn
 #### 2. Move to example
 
 ```
-cd examples/shopping-cart
+cd examples/getting-started
 ```
 
 #### 3. Install example

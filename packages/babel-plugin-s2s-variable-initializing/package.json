@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-s2s-variable-initializing",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "variable initializing with type info",
   "license": "MIT",
   "repository": "akameco/s2s-plugins",
@@ -18,6 +18,6 @@
     "babylon": "^6.18.0",
     "flow-faker": "^0.1.1",
     "s2s-babel-flow-types": "^0.2.0",
-    "s2s-utils": "^0.3.1"
+    "s2s-utils": "^0.4.0"
   }
 }

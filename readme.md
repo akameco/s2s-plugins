@@ -1,4 +1,4 @@
-# **Oops! Moved. Jump [akameco/s2s](https://akameco/s2s)** :)
+# **Oops! Moved. Jump [akameco/s2s](https://github.com/akameco/s2s)** :)
 
 <img src="http://78.media.tumblr.com/626ee89915670341346f38dd33f55ef1/tumblr_ol8dj0b6my1tr842yo1_r1_540.gif"/>
 

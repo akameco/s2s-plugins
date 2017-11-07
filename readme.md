@@ -1,3 +1,7 @@
+# **Oops! Moved. Jump [akameco/s2s](https://akameco/s2s)** :)
+
+<img src="http://78.media.tumblr.com/626ee89915670341346f38dd33f55ef1/tumblr_ol8dj0b6my1tr842yo1_r1_540.gif"/>
+
 # s2s plugins
 [![Build Status](https://travis-ci.org/akameco/s2s-plugins.svg?branch=master)](https://travis-ci.org/akameco/s2s-plugins)
 [![Coverage Status](https://coveralls.io/repos/github/akameco/s2s-plugins/badge.svg?branch=master)](https://coveralls.io/github/akameco/s2s-plugins?branch=master)
